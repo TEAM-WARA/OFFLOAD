@@ -1,7 +1,7 @@
 package dev.creative.creative.service.impl;
 
 
-import com.auth.auth.repository.UserRepository;
+import dev.creative.creative.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

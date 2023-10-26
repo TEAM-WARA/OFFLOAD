@@ -1,7 +1,7 @@
 package dev.creative.creative.repository;
 
 
-import com.auth.auth.entity.UserEntity;
+import dev.creative.creative.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
