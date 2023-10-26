@@ -102,7 +102,7 @@ public class JwtTokenProvider {
             Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
             return !claims.getBody().getExpiration().before(new Date());
         } catch (Exception e){
-            logger.info("[JwtTokenProvider] validateToken, 토큰 유효성 체크 예외 발생");
+            logger.info("[JwtTokenProvider] validateToken, 토큰 유효성 체크 예외 발생" +e);
             return false;
         }
 

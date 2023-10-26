@@ -4,6 +4,7 @@ import dev.creative.creative.dao.StoreDAO;
 import dev.creative.creative.dto.StoreDTO;
 import dev.creative.creative.entity.StoreEntity;
 import dev.creative.creative.service.AddressService;
+import dev.creative.creative.service.AuthService;
 import dev.creative.creative.service.ImageService;
 import dev.creative.creative.service.StoreService;
 import org.slf4j.Logger;
@@ -27,19 +28,24 @@ public class StoreServiceImpl implements StoreService {
     private final StoreDAO storeDAO;
     private final ImageService imageService;
     private final AddressService addressService;
+    private final AuthService authService;
+
 
     public StoreServiceImpl(
             @Autowired ImageService imageService,
             @Autowired StoreDAO storeDAO,
-            @Autowired AddressService addressService
+            @Autowired AddressService addressService,
+            @Autowired AuthService authService
     ){
         this.addressService = addressService;
         this.imageService = imageService;
         this.storeDAO = storeDAO;
+        this.authService = authService;
     }
 
     @Override
     public ResponseEntity<StoreDTO> createStore(StoreDTO storeDTO, List<MultipartFile> images) throws IOException {
+
         List<Long> imageList = this.imageService.upload(images);
         LinkedHashMap coordinate = this.addressService.toCoordinate(storeDTO.getAddress());
 
