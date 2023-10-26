@@ -3,6 +3,7 @@ package dev.creative.creative.controller;
 
 import dev.creative.creative.dto.StorageDTO;
 import dev.creative.creative.service.StorageService;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,13 @@ public class StorageController {
         this.storageService = storageService;
     }
 
+    @ApiOperation(value = "Create Storage", notes = "물품 보관 요청")
+    @ApiResponses({
+            @ApiResponse(code=200, message = "성공"),
+            @ApiResponse(code=400, message = "값이 없습니다."),
+            @ApiResponse(code=401, message = "인증된 사용자가 아닙니다."),
+            @ApiResponse(code=403, message = "접근 권한이 없습니다.")
+    })
     @PostMapping
     public ResponseEntity<StorageDTO> createStorage(
             @RequestPart("data") StorageDTO storageDTO,
@@ -33,6 +41,16 @@ public class StorageController {
         return this.storageService.createStorage(storageDTO, images);
     }
 
+    @ApiOperation(value = "Read Storage", notes = "물품 보관 요청 조회")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "물품 보관 요청 인덱스 번호", required = true, dataType = "long", example = "1", defaultValue = "")
+    })
+    @ApiResponses({
+            @ApiResponse(code=200, message = "성공"),
+            @ApiResponse(code=400, message = "값이 없습니다."),
+            @ApiResponse(code=401, message = "인증된 사용자가 아닙니다."),
+            @ApiResponse(code=403, message = "접근 권한이 없습니다.")
+    })
     @GetMapping("/{id}")
     public ResponseEntity<StorageDTO> readStorage(
             @PathVariable("id") Long id
@@ -40,11 +58,28 @@ public class StorageController {
         return this.storageService.readStorage(id);
     }
 
+    @ApiOperation(value = "Read ALL Storage", notes = "물품 보관 요청 모두 조회")
+    @ApiResponses({
+            @ApiResponse(code=200, message = "성공"),
+            @ApiResponse(code=400, message = "값이 없습니다."),
+            @ApiResponse(code=401, message = "인증된 사용자가 아닙니다."),
+            @ApiResponse(code=403, message = "접근 권한이 없습니다.")
+    })
     @GetMapping()
     public ResponseEntity<List<StorageDTO>> readAllStorage(){
         return this.storageService.readAllStorage();
     }
 
+    @ApiOperation(value = "Read ALL Storage By STORE", notes = "상점별 물품 보관 요청 모두 조회")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "email", value = "상점 주인 이메일", required = true, dataType = "String", defaultValue = "")
+    })
+    @ApiResponses({
+            @ApiResponse(code=200, message = "성공"),
+            @ApiResponse(code=400, message = "값이 없습니다."),
+            @ApiResponse(code=401, message = "인증된 사용자가 아닙니다."),
+            @ApiResponse(code=403, message = "접근 권한이 없습니다.")
+    })
     @GetMapping("/seller")
     public ResponseEntity<List<StorageDTO>> readAllStorageByStoreEmail(
             @RequestParam("email") String email
@@ -52,6 +87,16 @@ public class StorageController {
         return this.storageService.readAllStorageByStoreEmail(email);
     }
 
+    @ApiOperation(value = "Read ALL Storage By User", notes = "유저별 모든 물품 보관 요청 조회")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "email", value = "유저 이메일", required = true, dataType = "String", defaultValue = "")
+    })
+    @ApiResponses({
+            @ApiResponse(code=200, message = "성공"),
+            @ApiResponse(code=400, message = "값이 없습니다."),
+            @ApiResponse(code=401, message = "인증된 사용자가 아닙니다."),
+            @ApiResponse(code=403, message = "접근 권한이 없습니다.")
+    })
     @GetMapping("/user")
     public ResponseEntity<List<StorageDTO>> readAllStorageByEmail(
             @RequestParam("email") String email
@@ -59,6 +104,16 @@ public class StorageController {
         return this.storageService.readAllStorageByEmail(email);
     }
 
+    @ApiOperation(value = "Delete Storage", notes = "물품 보관 요청 삭제")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "물품 보관 요청 인덱스 번호", required = true, dataType = "long", example = "1", defaultValue = "")
+    })
+    @ApiResponses({
+            @ApiResponse(code=200, message = "성공"),
+            @ApiResponse(code=400, message = "값이 없습니다."),
+            @ApiResponse(code=401, message = "인증된 사용자가 아닙니다."),
+            @ApiResponse(code=403, message = "접근 권한이 없습니다.")
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> deleteStorage(
             @PathVariable("id") Long id

@@ -4,6 +4,7 @@ package dev.creative.creative.controller;
 import dev.creative.creative.dto.TokenDTO;
 import dev.creative.creative.dto.UserDTO;
 import dev.creative.creative.service.AuthService;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,11 @@ public class AuthController {
         this.authService = authService;
     }
 
+    @ApiOperation(value = "Sign Up", notes = "회원가입")
+    @ApiResponses({
+            @ApiResponse(code=201, message = "회원가입 성공"),
+            @ApiResponse(code=400, message = "값이 없습니다.")
+    })
     @PostMapping("/signup")
     public ResponseEntity<UserDTO> signUp(
             @RequestBody UserDTO userDTO
@@ -32,6 +38,11 @@ public class AuthController {
         return this.authService.signUp(userDTO);
     }
 
+    @ApiOperation(value = "Sign In", notes = "로그인")
+    @ApiResponses({
+            @ApiResponse(code=200, message = "로그인 성공 및 토큰 발급"),
+            @ApiResponse(code=400, message = "로그인 실패")
+    })
     @PostMapping("/signin")
     public ResponseEntity<TokenDTO> signIn(
             @RequestBody UserDTO userDTO

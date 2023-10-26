@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 
 @RestController
 @RequestMapping("/address")
+@ApiIgnore
 public class AddressController {
     private final static Logger logger = LoggerFactory.getLogger(AddressController.class);
     private final AddressService addressService;
