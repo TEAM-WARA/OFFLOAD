@@ -1,28 +1,25 @@
 package dev.creative.creative.dto;
 
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 @Getter
 @Setter
-@ToString
-public class StorageDTO {
-    private Long id;
+public class StoreDTO {
+    private long id;
     private String name;
-    private String storeEmail;
-    private String content;
-    private String start;
-    private String expiration;
+    private String address;
+    private Double coordinateX;
+    private Double coordinateY;
+    private String email;
     @Builder.Default
     private List<Long> images = new ArrayList<>();
-    private String email;
-    private Boolean allow;
-
 }
