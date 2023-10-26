@@ -59,9 +59,8 @@ https://templatemo.com/tm-591-villa-agency
                     <ul class="nav">
                       <li><a href="index.html" class="active">가게등록</a></li>
                       <li><a href="properties.html">가게 물품 관리</a></li>
-                      <li><a href="property-details.html">등록한 물품</a></li>
-                      <li><a href="contact.html">로그인</a></li>
-                      <li><a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
+                      <li><a href="login.html">로그인</a></li>
+                      <li><a href="property-details.html"><i class="fa fa-calendar"></i> 등록한 물품</a></li>
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -73,16 +72,113 @@ https://templatemo.com/tm-591-villa-agency
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
-
-
-    <div class="container">
-      <div class="row">
-          <div id="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12469.776493332698!2d-80.14036379941481!3d25.907788681148624!2m3!1f357.26927939317244!2f20.870722720054623!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x88d9add4b4ac788f%3A0xe77469d09480fcdb!2sSunny%20Isles%20Beach!5e1!3m2!1sen!2sth!4v1642869952544!5m2!1sen!2sth" width="100%" height="500px" frameborder="0" style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);" allowfullscreen=""></iframe>
+  <div id="container" class="container">
+    <!-- FORM SECTION -->
+    <div class="row">
+      <!-- SIGN UP -->
+      <div class="col align-items-center flex-col sign-up">
+        <div class="form-wrapper align-items-center">
+          <div class="form sign-up">
+            <div class="input-group">
+              <i class='bx bxs-user'></i>
+              <input type="text" placeholder="Username">
+            </div>
+            <div class="input-group">
+              <i class='bx bx-mail-send'></i>
+              <input type="email" placeholder="Email">
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-lock-alt'></i>
+              <input type="password" placeholder="Password">
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-lock-alt'></i>
+              <input type="password" placeholder="Confirm password">
+            </div>
+            <button>
+              Sign up
+            </button>
+            <p>
+              <span>
+                Already have an account?
+              </span>
+              <b onclick="toggle()" class="pointer">
+                Sign in here
+              </b>
+            </p>
           </div>
         </div>
+      
       </div>
+      <!-- END SIGN UP -->
+      <!-- SIGN IN -->
+      <div class="col align-items-center flex-col sign-in">
+        <div class="form-wrapper align-items-center">
+          <div class="form sign-in">
+            <div class="input-group">
+              <i class='bx bxs-user'></i>
+              <input type="text" placeholder="Username">
+            </div>
+            <div class="input-group">
+              <i class='bx bxs-lock-alt'></i>
+              <input type="password" placeholder="Password">
+            </div>
+            <button>
+              Sign in
+            </button>
+            <p>
+              <b>
+                Forgot password?
+              </b>
+            </p>
+            <p>
+              <span>
+                Don't have an account?
+              </span>
+              <b onclick="toggle()" class="pointer">
+                Sign up here
+              </b>
+            </p>
+          </div>
+        </div>
+        <div class="form-wrapper">
+    
+        </div>
+      </div>
+      <!-- END SIGN IN -->
     </div>
+    <!-- END FORM SECTION -->
+    <!-- CONTENT SECTION -->
+    <div class="row content-row">
+      <!-- SIGN IN CONTENT -->
+      <div class="col align-items-center flex-col">
+        <div class="text sign-in">
+          <h2>
+            Welcome
+          </h2>
+  
+        </div>
+        <div class="img sign-in">
+    
+        </div>
+      </div>
+      <!-- END SIGN IN CONTENT -->
+      <!-- SIGN UP CONTENT -->
+      <div class="col align-items-center flex-col">
+        <div class="img sign-up">
+        
+        </div>
+        <div class="text sign-up">
+          <h2>
+            Join with us
+          </h2>
+  
+        </div>
+      </div>
+      <!-- END SIGN UP CONTENT -->
+    </div>
+    <!-- END CONTENT SECTION -->
+  </div>
 
 
   <footer>
