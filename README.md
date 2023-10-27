@@ -52,9 +52,9 @@ GIF Images
 <br>
 ## 팀
 |이창의|이민재|류세민|
-|:-:|:-:|:-:|
-|![이미지](https://avatars.githubusercontent.com/u/122252160?v=4)|![이미지](https://avatars.githubusercontent.com/u/95695319?v=4)|![](https://avatars.githubusercontent.com/u/113248843?v=4)|
-|Spring Boot|HTML,CSS,JS|HTML,CSS,JS|
+|:--:|:--:|:--:|
+|![이미지](https://avatars.githubusercontent.com/u/122252160?v=4)| ![이미지](https://avatars.githubusercontent.com/u/95695319?v=4) | ![](https://avatars.githubusercontent.com/u/113248843?v=4) |
+| Spring Boot | HTML,CSS,JS | HTML,CSS,JS |
 
 ## 구현 기능
 
