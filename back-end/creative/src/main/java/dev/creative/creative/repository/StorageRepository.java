@@ -10,4 +10,5 @@ import java.util.List;
 public interface StorageRepository extends JpaRepository<StorageEntity, Long> {
     public List<StorageEntity> getAllByStoreEmail(String storeEmail);
     public List<StorageEntity> getAllByEmail(String email);
+    public List<StorageEntity> getAllByStoreEmailAndAllow(String storeEmail, Boolean allow);
 }

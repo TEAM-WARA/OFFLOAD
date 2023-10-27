@@ -139,4 +139,12 @@ public class StorageController {
         return this.storageService.deniedStorage(email, id);
     }
 
+    @GetMapping("/seller/allow")
+    public ResponseEntity<List<StorageDTO>> readAllStorageByStoreEmailAndAllowed(
+        @RequestParam("email") String email
+    ){
+        return this.storageService.readAllStorageByAllowed(email);
+    }
+
+
 }

@@ -63,4 +63,9 @@ public class StorageDAOImpl implements StorageDAO {
             return false;
         }
     }
+
+    @Override
+    public List<StorageEntity> readAllStorageByEmailAndAllow(String email) {
+            return this.storageRepository.getAllByStoreEmailAndAllow(email, Boolean.TRUE);
+    }
 }

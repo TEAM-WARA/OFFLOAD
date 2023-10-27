@@ -11,5 +11,6 @@ public interface StorageDAO {
     public List<StorageEntity> readAllStorageByStoreEmail(String email);
     public List<StorageEntity> readAllStorageByEmail(String email);
     public Boolean deleteStorage(Long id);
+    public List<StorageEntity> readAllStorageByEmailAndAllow(String email);
 
 }

@@ -11,10 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Service
 public class StorageServiceImpl implements StorageService {
@@ -22,6 +26,9 @@ public class StorageServiceImpl implements StorageService {
     private final static Logger logger = LoggerFactory.getLogger(StorageServiceImpl.class);
     private final StorageDAO storageDAO;
     private final ImageService imageService;
+    @Autowired
+    private EntityManager entityManager;
+
 
     public StorageServiceImpl(
             @Autowired ImageService imageService,
@@ -32,6 +39,8 @@ public class StorageServiceImpl implements StorageService {
     }
 
 
+
+    @Transactional
     @Override
     public ResponseEntity<StorageDTO> createStorage(StorageDTO storageDTO, List<MultipartFile> images) throws IOException {
         List<Long> imageList = this.imageService.upload(images);
@@ -71,7 +80,7 @@ public class StorageServiceImpl implements StorageService {
                     .id(storageEntity.getId())
                     .name(storageEntity.getName())
                     .storeEmail(storageEntity.getStoreEmail())
-                    .allow(false)
+                    .allow(storageEntity.getAllow())
                     .email(storageEntity.getEmail())
                     .content(storageEntity.getContent())
                     .images(storageEntity.getImages())
@@ -84,6 +93,7 @@ public class StorageServiceImpl implements StorageService {
         }
     }
 
+    @Transactional
     @Override
     public ResponseEntity<List<StorageDTO>> readAllStorage() {
         List<StorageDTO> storages = new ArrayList<>();
@@ -92,7 +102,7 @@ public class StorageServiceImpl implements StorageService {
                     .id(storageEntity.getId())
                     .name(storageEntity.getName())
                     .storeEmail(storageEntity.getStoreEmail())
-                    .allow(false)
+                    .allow(storageEntity.getAllow())
                     .email(storageEntity.getEmail())
                     .content(storageEntity.getContent())
                     .images(storageEntity.getImages())
@@ -105,6 +115,7 @@ public class StorageServiceImpl implements StorageService {
         return ResponseEntity.status(200).body(storages);
     }
 
+    @Transactional
     @Override
     public ResponseEntity<List<StorageDTO>> readAllStorageByStoreEmail(String email) {
         List<StorageDTO> storages = new ArrayList<>();
@@ -113,7 +124,7 @@ public class StorageServiceImpl implements StorageService {
                     .id(storageEntity.getId())
                     .name(storageEntity.getName())
                     .storeEmail(storageEntity.getStoreEmail())
-                    .allow(false)
+                    .allow(storageEntity.getAllow())
                     .email(storageEntity.getEmail())
                     .content(storageEntity.getContent())
                     .images(storageEntity.getImages())
@@ -126,6 +137,7 @@ public class StorageServiceImpl implements StorageService {
         return ResponseEntity.status(200).body(storages);
     }
 
+    @Transactional
     @Override
     public ResponseEntity<List<StorageDTO>> readAllStorageByEmail(String email) {
         List<StorageDTO> storages = new ArrayList<>();
@@ -134,7 +146,7 @@ public class StorageServiceImpl implements StorageService {
                     .id(storageEntity.getId())
                     .name(storageEntity.getName())
                     .storeEmail(storageEntity.getStoreEmail())
-                    .allow(false)
+                    .allow(storageEntity.getAllow())
                     .email(storageEntity.getEmail())
                     .content(storageEntity.getContent())
                     .images(storageEntity.getImages())
@@ -156,6 +168,7 @@ public class StorageServiceImpl implements StorageService {
         }
     }
 
+    @Transactional
     @Override
     public ResponseEntity<StorageDTO> allowStorage(String email, Long id) {
         try{
@@ -186,6 +199,7 @@ public class StorageServiceImpl implements StorageService {
         }
     }
 
+    @Transactional
     @Override
     public ResponseEntity<StorageDTO> deniedStorage(String email, Long id) {
         try{
@@ -213,5 +227,31 @@ public class StorageServiceImpl implements StorageService {
         }catch (NullPointerException e){
             return ResponseEntity.status(400).body(StorageDTO.builder().name("존재하지 않는 요청입니다.").build());
         }
+    }
+
+
+    @Transactional
+    @Override
+    public ResponseEntity<List<StorageDTO>> readAllStorageByAllowed(String email) {
+        List<StorageEntity> entities = this.storageDAO.readAllStorageByEmailAndAllow(email);
+        if(entities != null){
+            List<StorageDTO> storages = new ArrayList<>();
+            for(StorageEntity storageEntity : entities){
+                StorageDTO storageDTO = StorageDTO.builder()
+                        .id(storageEntity.getId())
+                        .name(storageEntity.getName())
+                        .storeEmail(storageEntity.getStoreEmail())
+                        .allow(storageEntity.getAllow())
+                        .email(storageEntity.getEmail())
+                        .content(storageEntity.getContent())
+                        .images(storageEntity.getImages())
+                        .start(storageEntity.getStart().toString())
+                        .expiration(storageEntity.getExpiration().toString())
+                        .build();
+                storages.add(storageDTO);
+            }
+            return ResponseEntity.status(200).body(storages);
+        }
+        return ResponseEntity.status(400).body(null);
     }
 }
