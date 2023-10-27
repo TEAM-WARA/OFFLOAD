@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="assets/css/dropdown.css" />
 <!--
 
 TemplateMo 591 villa agency
@@ -29,7 +30,6 @@ https://templatemo.com/tm-591-villa-agency
 <!-- Custom styles for this template-->
 <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
 
-<link rel="stylesheet" href="login.css" />
   </head>
 
   <body class="bg-gradient-primary">
@@ -62,11 +62,14 @@ https://templatemo.com/tm-591-villa-agency
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="storeResister.html">가게등록</a></li>
-                      <li><a href="properties.html">가게 물품 관리</a></li>
-                      <li><a href="login.html">로그인</a></li>
-                      <li><a href="property-details.html"><i class="fa fa-calendar"></i> 등록한 물품</a></li>
-                  </ul>   
+                        <li><a href="map.html">지도</a></li>
+                        <li><a href="storeResister.html">가게등록</a></li>
+                        <li><a href="properties.html">가게 물품 관리</a></li>
+     
+                      
+                        <li id="registeredItem"><a href="property-details.html"><i class="fa fa-calendar"></i> 등록한 물품</a></li>
+
+                    </ul>  
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -85,7 +88,7 @@ https://templatemo.com/tm-591-villa-agency
 
             <div class="col-xl-10 col-lg-12 col-md-9">
 
-                <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card o-hidden border-0 shadow-lg my-5" id="loginCard">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
@@ -98,23 +101,19 @@ https://templatemo.com/tm-591-villa-agency
                                     <form class="user">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                id="LoginInputEmail" aria-describedby="emailHelp"
+                                                placeholder="이메일을 입력해 주세요">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="LoginInputPassword" placeholder="비밀번호를 입력해 주세요">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                              
+
+                                        <button id="LoginButton" class="btn btn-primary btn-user btn-block">
+                                            로그인
+                                        </button>
+                                        
                                         <hr>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
@@ -126,7 +125,7 @@ https://templatemo.com/tm-591-villa-agency
                                     <hr>
 
                                     <div class="text-center">
-                                        <a class="small" href="register.html">회원가입</a>
+                                        <a class="small" href="#" id="showRegister">회원가입</a>
                                     </div>
                                 </div>
                             </div>
@@ -138,19 +137,75 @@ https://templatemo.com/tm-591-villa-agency
 
         </div>
 
-    </div>
-  </div>
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <div class="card o-hidden border-0 shadow-lg my-5" id="registerCard" style="display: none;">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">계정을 생성하세요!</h1>
+                            </div>
+                            <form class="user">
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="resisterInputEmail"
+                                        placeholder="Email Address">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="resisterInputPassword" placeholder="Password">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="resisterRepeatPassword" placeholder="Repeat Password">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="userRole" name="userRole" value="user" checked>
+                                        <label class="custom-control-label" for="userRole">일반 유저</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" class="custom-control-input" id="adminRole" name="userRole" value="seller">
+                                        <label class="custom-control-label" for="adminRole">관리자 유저</label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <button id="registerButton" class="btn btn-primary btn-user btn-block">
+                                    계정 등록하기
+                                </button>
+                                
+                                <hr>
+                                <a href="index.html" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                </a>
+                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a>
+                            </form>
+                            <hr>
+
+                            <div class="text-center">
+                                <a class="small" href="#" id="showLogin">이미 계정이 있습니다</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+
+
 
     <!-- Custom scripts for all pages-->
     <script src="assets/js/sb-admin-2.min.js"></script>
 
-
+    <script src="assets/js/login.js"></script>
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
