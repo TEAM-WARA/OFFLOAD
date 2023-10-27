@@ -79,7 +79,7 @@ public class StoreController {
             @ApiResponse(code=401, message = "인증된 사용자가 아닙니다."),
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
-    @GetMapping("/range")
+    @PostMapping("/range")
     public ResponseEntity<List<StoreDTO>> readAllStoreBetweenSquare(
             @RequestBody RangeDTO rangeDTO
             ){
