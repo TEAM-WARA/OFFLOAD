@@ -155,4 +155,63 @@ public class StorageServiceImpl implements StorageService {
             return ResponseEntity.status(400).body(false);
         }
     }
+
+    @Override
+    public ResponseEntity<StorageDTO> allowStorage(String email, Long id) {
+        try{
+            StorageEntity storageEntity = this.storageDAO.readStorage(id);
+
+            logger.info(storageEntity.toString());
+            if (storageEntity.getEmail().equals(email) && !storageEntity.getAllow()) {
+                storageEntity.setAllow(true);
+                storageEntity = this.storageDAO.createStorage(storageEntity);
+                StorageDTO storageDTO = StorageDTO.builder()
+                        .id(storageEntity.getId())
+                        .name(storageEntity.getName())
+                        .storeEmail(storageEntity.getStoreEmail())
+                        .allow(storageEntity.getAllow())
+                        .email(storageEntity.getEmail())
+                        .content(storageEntity.getContent())
+                        .images(storageEntity.getImages())
+                        .start(storageEntity.getStart().toString())
+                        .expiration(storageEntity.getExpiration().toString())
+                        .build();
+                return ResponseEntity.status(200).body(storageDTO);
+            } else if (storageEntity.getAllow()) {
+                return ResponseEntity.status(400).body(StorageDTO.builder().name("이미 허용되어 있습니다.").build());
+            }
+            return ResponseEntity.status(400).body(StorageDTO.builder().name("권한이 없는 요청서에 대한 접근입니다.").build());
+        }catch (NullPointerException e) {
+            return ResponseEntity.status(400).body(StorageDTO.builder().name("존재하지 않는 보관 요청입니다.").build());
+        }
+    }
+
+    @Override
+    public ResponseEntity<StorageDTO> deniedStorage(String email, Long id) {
+        try{
+            StorageEntity storageEntity = this.storageDAO.readStorage(id);
+            if (storageEntity.getEmail().equals(email)) {
+                storageEntity.setName("DENIED REQUEST");
+                storageEntity.setAllow(false);
+                storageEntity.setContent("물품 보관 요청이 거부되었습니다.");
+                storageEntity = storageDAO.createStorage(storageEntity);
+                StorageDTO storageDTO = StorageDTO.builder()
+                        .id(storageEntity.getId())
+                        .name(storageEntity.getName())
+                        .storeEmail(storageEntity.getStoreEmail())
+                        .allow(storageEntity.getAllow())
+                        .email(storageEntity.getEmail())
+                        .content(storageEntity.getContent())
+                        .images(storageEntity.getImages())
+                        .start(storageEntity.getStart().toString())
+                        .expiration(storageEntity.getExpiration().toString())
+                        .build();
+                return ResponseEntity.status(200).body(storageDTO);
+            }
+
+            return ResponseEntity.status(403).body(StorageDTO.builder().name("권한이 없는 요청서에 대한 접근입니다.").build());
+        }catch (NullPointerException e){
+            return ResponseEntity.status(400).body(StorageDTO.builder().name("존재하지 않는 요청입니다.").build());
+        }
+    }
 }

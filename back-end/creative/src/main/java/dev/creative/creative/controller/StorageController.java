@@ -2,6 +2,7 @@ package dev.creative.creative.controller;
 
 
 import dev.creative.creative.dto.StorageDTO;
+import dev.creative.creative.entity.StorageEntity;
 import dev.creative.creative.service.StorageService;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
@@ -121,5 +122,21 @@ public class StorageController {
         return this.storageService.deleteStorage(id);
     }
 
+
+    @PutMapping("/allow/{id}")
+    public ResponseEntity<StorageDTO> allowStorage(
+            @PathVariable("id") Long id,
+            @RequestParam("email") String email
+    ){
+        return this.storageService.allowStorage(email, id);
+    }
+
+    @PutMapping("/denied/{id}")
+    public ResponseEntity<StorageDTO> deniedStorage(
+            @PathVariable("id") Long id,
+            @RequestParam("email") String email
+    ){
+        return this.storageService.deniedStorage(email, id);
+    }
 
 }

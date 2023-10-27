@@ -14,6 +14,8 @@ public interface StorageService {
     public ResponseEntity<List<StorageDTO>> readAllStorageByStoreEmail(String email);
     public ResponseEntity<List<StorageDTO>> readAllStorageByEmail(String email);
     public ResponseEntity<Boolean> deleteStorage(Long id);
+    public ResponseEntity<StorageDTO> allowStorage(String email, Long id);
+    public ResponseEntity<StorageDTO> deniedStorage(String email, Long id);
 
 
 }
