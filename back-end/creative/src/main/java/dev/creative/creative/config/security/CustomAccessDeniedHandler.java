@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+// 권한 없는 요청에 대한 처리 핸들러
 @Component
 public class CustomAccessDeniedHandler implements AccessDeniedHandler {
     private final static Logger logger = LoggerFactory.getLogger(CustomAccessDeniedHandler.class);

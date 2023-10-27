@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+// 이미지 관련 서비스 구현체
 @Service
 public class ImageServiceImpl implements ImageService {
 

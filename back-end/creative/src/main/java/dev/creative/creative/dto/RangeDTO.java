@@ -3,6 +3,7 @@ package dev.creative.creative.dto;
 
 import lombok.*;
 
+// Range Data Transfer Object
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor

@@ -27,15 +27,6 @@ public class ImageController {
         this.imageService = imageService;
     }
 
-
-    @ApiIgnore
-    @PostMapping
-    public List<Long> upload(
-            @RequestPart("images") List<MultipartFile> images
-    ) throws IOException {
-        return this.imageService.upload(images);
-    }
-
     @ApiOperation(value = "Image Download API", notes = "이미지 조회")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", value = "유저 인덱스 번호", required = true, dataType = "long", example = "1", defaultValue = "")
@@ -48,6 +39,7 @@ public class ImageController {
     public byte[] download(
            @PathVariable("id") long id
     ){
+        logger.info("이미지 조회 : " + id);
         return this.imageService.download(id);
     }
 

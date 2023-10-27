@@ -12,6 +12,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+// 유저 정보 스키마
 @Getter
 @Setter
 @NoArgsConstructor

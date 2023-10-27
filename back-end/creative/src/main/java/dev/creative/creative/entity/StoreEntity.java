@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+// 상점 정보 테이블 스키마
 @Entity
 @Getter
 @Setter

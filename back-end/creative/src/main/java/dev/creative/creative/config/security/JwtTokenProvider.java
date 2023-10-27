@@ -23,6 +23,7 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
+// JWT 토큰 발급, 검증 관련 서비스
 @Component
 @RequiredArgsConstructor
 public class JwtTokenProvider {

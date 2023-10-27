@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+// JWT 토큰 검증을 위한 Filter
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final static Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
     private final JwtTokenProvider jwtTokenProvider;

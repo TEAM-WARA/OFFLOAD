@@ -17,6 +17,8 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 
+
+// 로그인 관련 서비스 구현체
 @Service
 public class AuthServiceImpl implements AuthService {
 

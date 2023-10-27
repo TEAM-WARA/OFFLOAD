@@ -3,6 +3,8 @@ package dev.creative.creative.dto;
 
 import lombok.*;
 
+
+// User Data Transfer Object
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString

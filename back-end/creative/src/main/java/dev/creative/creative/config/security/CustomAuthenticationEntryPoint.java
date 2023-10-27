@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+// 인증되지않은 접근에 대한 처리
 @Component
 public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override

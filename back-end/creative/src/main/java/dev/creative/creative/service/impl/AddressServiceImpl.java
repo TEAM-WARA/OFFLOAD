@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 
-// 좌표 address 관련 서비스
+// 좌표 address 관련 구현체
 @Service
 public class AddressServiceImpl implements AddressService {
 

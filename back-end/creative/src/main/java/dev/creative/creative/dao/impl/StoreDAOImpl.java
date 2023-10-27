@@ -13,6 +13,7 @@ import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 
+// 상정 정보 DAO 구현체
 @Repository
 public class StoreDAOImpl implements StoreDAO {
 

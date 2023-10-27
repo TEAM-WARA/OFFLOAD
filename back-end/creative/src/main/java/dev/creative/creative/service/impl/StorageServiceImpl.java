@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+// 물품 보관 신청서 관련 구현체
 @Service
 public class StorageServiceImpl implements StorageService {
 
@@ -48,6 +49,7 @@ public class StorageServiceImpl implements StorageService {
         StorageEntity storageEntity = StorageEntity.builder()
                 .name(storageDTO.getName())
                 .storeEmail(storageDTO.getStoreEmail())
+                .storeId(storageDTO.getStoreId())
                 .allow(false)
                 .phone(storageDTO.getPhone())
                 .content(storageDTO.getContent())
@@ -62,6 +64,7 @@ public class StorageServiceImpl implements StorageService {
                 .id(storageEntity.getId())
                 .name(storageEntity.getName())
                 .storeEmail(storageEntity.getStoreEmail())
+                .storeId(storageEntity.getStoreId())
                 .allow(false)
                 .phone(storageEntity.getPhone())
                 .content(storageEntity.getContent())
@@ -82,6 +85,7 @@ public class StorageServiceImpl implements StorageService {
                     .id(storageEntity.getId())
                     .name(storageEntity.getName())
                     .storeEmail(storageEntity.getStoreEmail())
+                    .storeId(storageEntity.getStoreId())
                     .allow(storageEntity.getAllow())
                     .phone(storageEntity.getPhone())
                     .email(storageEntity.getEmail())
@@ -105,6 +109,7 @@ public class StorageServiceImpl implements StorageService {
                     .id(storageEntity.getId())
                     .name(storageEntity.getName())
                     .storeEmail(storageEntity.getStoreEmail())
+                    .storeId(storageEntity.getStoreId())
                     .allow(storageEntity.getAllow())
                     .phone(storageEntity.getPhone())
                     .email(storageEntity.getEmail())
@@ -128,6 +133,7 @@ public class StorageServiceImpl implements StorageService {
                     .id(storageEntity.getId())
                     .name(storageEntity.getName())
                     .storeEmail(storageEntity.getStoreEmail())
+                    .storeId(storageEntity.getStoreId())
                     .allow(storageEntity.getAllow())
                     .phone(storageEntity.getPhone())
                     .email(storageEntity.getEmail())
@@ -151,6 +157,7 @@ public class StorageServiceImpl implements StorageService {
                     .id(storageEntity.getId())
                     .name(storageEntity.getName())
                     .storeEmail(storageEntity.getStoreEmail())
+                    .storeId(storageEntity.getStoreId())
                     .allow(storageEntity.getAllow())
                     .phone(storageEntity.getPhone())
                     .email(storageEntity.getEmail())
@@ -188,6 +195,7 @@ public class StorageServiceImpl implements StorageService {
                         .id(storageEntity.getId())
                         .name(storageEntity.getName())
                         .storeEmail(storageEntity.getStoreEmail())
+                        .storeId(storageEntity.getStoreId())
                         .allow(storageEntity.getAllow())
                         .phone(storageEntity.getPhone())
                         .email(storageEntity.getEmail())
@@ -220,6 +228,7 @@ public class StorageServiceImpl implements StorageService {
                         .id(storageEntity.getId())
                         .name(storageEntity.getName())
                         .storeEmail(storageEntity.getStoreEmail())
+                        .storeId(storageEntity.getStoreId())
                         .allow(storageEntity.getAllow())
                         .phone(storageEntity.getPhone())
                         .email(storageEntity.getEmail())
@@ -249,6 +258,7 @@ public class StorageServiceImpl implements StorageService {
                         .id(storageEntity.getId())
                         .name(storageEntity.getName())
                         .storeEmail(storageEntity.getStoreEmail())
+                        .storeId(storageEntity.getStoreId())
                         .allow(storageEntity.getAllow())
                         .phone(storageEntity.getPhone())
                         .email(storageEntity.getEmail())

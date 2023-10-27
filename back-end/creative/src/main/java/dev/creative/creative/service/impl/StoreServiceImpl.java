@@ -22,6 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 
+// 상점 정보 관련 구현체
 @Service
 public class StoreServiceImpl implements StoreService {
 

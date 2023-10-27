@@ -16,6 +16,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.List;
 
+// Swagger- API 문서화 설정
 @Configuration
 public class SwaggerConfiguration {
 

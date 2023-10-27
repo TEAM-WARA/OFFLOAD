@@ -35,10 +35,12 @@ public class StorageController {
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
     @PostMapping
+    // 물품 보관 요청서 생성
     public ResponseEntity<StorageDTO> createStorage(
             @RequestPart("data") StorageDTO storageDTO,
             @RequestPart("images")List<MultipartFile> images
             ) throws IOException {
+        logger.info("물품 보관 요청서 생성 : "+storageDTO.toString());
         return this.storageService.createStorage(storageDTO, images);
     }
 
@@ -53,6 +55,7 @@ public class StorageController {
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
     @GetMapping("/{id}")
+    // 물품 보관 요청서 id기반 조회
     public ResponseEntity<StorageDTO> readStorage(
             @PathVariable("id") Long id
     ){
@@ -67,6 +70,7 @@ public class StorageController {
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
     @GetMapping()
+    // 물품 보관 요청서 전체 조회
     public ResponseEntity<List<StorageDTO>> readAllStorage(){
         return this.storageService.readAllStorage();
     }
@@ -82,9 +86,11 @@ public class StorageController {
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
     @GetMapping("/seller")
+    // 물품 보관 요청서 관리자 기반 전체 조회
     public ResponseEntity<List<StorageDTO>> readAllStorageByStoreEmail(
             @RequestParam("email") String email
     ){
+        logger.info("물품 보관 요청서 관리자 기반 전체 조회 : "+email);
         return this.storageService.readAllStorageByStoreEmail(email);
     }
 
@@ -99,9 +105,11 @@ public class StorageController {
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
     @GetMapping("/user")
+    // 물품 보관 요청서 유저 기반 전체 조회
     public ResponseEntity<List<StorageDTO>> readAllStorageByEmail(
             @RequestParam("email") String email
     ){
+        logger.info("물품 보관 요청서 유저 기반 전체 조회");
         return this.storageService.readAllStorageByEmail(email);
     }
 
@@ -116,33 +124,42 @@ public class StorageController {
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
     @DeleteMapping("/{id}")
+    // 물품 보관 요청서 삭제
     public ResponseEntity<Boolean> deleteStorage(
             @PathVariable("id") Long id
     ){
+        logger.info("물품 보관 요청서 삭제 : "+id);
         return this.storageService.deleteStorage(id);
     }
 
 
+
+    // 물품 보관 요청서 승락
     @PutMapping("/allow/{id}")
     public ResponseEntity<StorageDTO> allowStorage(
             @PathVariable("id") Long id,
             @RequestParam("email") String email
     ){
+        logger.info("물품 보관 요청서 승락 :" +id +" email : " +email);
         return this.storageService.allowStorage(email, id);
     }
 
+    // 물품 보관 요청서 거부
     @PutMapping("/denied/{id}")
     public ResponseEntity<StorageDTO> deniedStorage(
             @PathVariable("id") Long id,
             @RequestParam("email") String email
     ){
+        logger.info("물품 보관 요청서 거부 : "+id+" email : "+email);
         return this.storageService.deniedStorage(email, id);
     }
 
+    // 승락된 물품 보관 요청서 관리자 기반 전체 조회
     @GetMapping("/seller/allow")
     public ResponseEntity<List<StorageDTO>> readAllStorageByStoreEmailAndAllowed(
         @RequestParam("email") String email
     ){
+        logger.info("승락된 물품 보관 요청서 관리자 기반 전체 조회 : "+email);
         return this.storageService.readAllStorageByAllowed(email);
     }
 

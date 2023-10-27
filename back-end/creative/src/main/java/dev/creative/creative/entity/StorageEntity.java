@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
+// 물품 보관 요청서 테이블 스키마
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -24,6 +26,8 @@ public class StorageEntity {
     private String name;
     @Column
     private String storeEmail;
+    @Column
+    private Long storeId;
     @Column
     private String content;
     @Column

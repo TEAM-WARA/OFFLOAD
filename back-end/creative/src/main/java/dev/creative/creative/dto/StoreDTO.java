@@ -7,6 +7,7 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+// Store Data Transfer Object
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

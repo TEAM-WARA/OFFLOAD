@@ -36,10 +36,12 @@ public class StoreController {
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
     @PostMapping
+    // 상점 정보 등록
     public ResponseEntity<StoreDTO> createStore(
             @RequestPart("data") StoreDTO storeDTO,
             @RequestPart("images") List<MultipartFile> images
             ) throws IOException {
+        logger.info("상점 정보 등록 : "+storeDTO);
         return this.storeService.createStore(storeDTO, images);
     }
 
@@ -54,9 +56,11 @@ public class StoreController {
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
     @GetMapping("/{id}")
+    // 상점 정보 id 기반 조회
     public ResponseEntity<StoreDTO> readStore(
             @PathVariable("id") Long id
     ){
+        logger.info("상점 정보 id 기반 조회 : "+id);
         return this.storeService.readStore(id);
     }
 
@@ -68,7 +72,9 @@ public class StoreController {
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
     @GetMapping()
+    // 상점 정보 전체 조회
     public ResponseEntity<List<StoreDTO>> readAllStore(){
+        logger.info("상점 정보 전체 조회");
         return this.storeService.readAllStore();
     }
 
@@ -80,9 +86,11 @@ public class StoreController {
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
     @PostMapping("/range")
+    // MinX, Y MAX X, Y 지리좌표 기준으로 포함하는 모든 상점 조회
     public ResponseEntity<List<StoreDTO>> readAllStoreBetweenSquare(
             @RequestBody RangeDTO rangeDTO
             ){
+        logger.info("지리좌표값 내의 모든 상점 조회 : "+ rangeDTO.toString());
         return this.storeService.readAllStoreBetweenSquare(rangeDTO);
     }
 
@@ -97,10 +105,12 @@ public class StoreController {
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
     @PutMapping("/{id}")
+    // 상점 정보 수정
     public ResponseEntity<StoreDTO> updateStore(
             @PathVariable("id") Long id,
             @RequestBody StoreDTO storeDTO
     ){
+        logger.info("상점 정보 수정 : "+storeDTO.toString());
         return this.storeService.updateStore(id, storeDTO);
     }
 
@@ -115,9 +125,11 @@ public class StoreController {
             @ApiResponse(code=403, message = "접근 권한이 없습니다.")
     })
     @DeleteMapping("/{id}")
+    // 상점 정보 삭제
     public ResponseEntity<Boolean> deleteStore(
             @PathVariable("id") Long id
     ){
+        logger.info("상점 정보 삭제 : "+id);
         return this.storeService.deleteStore(id);
     }
 }

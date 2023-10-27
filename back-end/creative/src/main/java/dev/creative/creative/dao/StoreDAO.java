@@ -5,6 +5,7 @@ import dev.creative.creative.entity.StoreEntity;
 
 import java.util.List;
 
+// 상점 정보 Data Acess Object 인터페이스
 public interface StoreDAO {
 
     public StoreEntity createStore(StoreEntity storeEntity);

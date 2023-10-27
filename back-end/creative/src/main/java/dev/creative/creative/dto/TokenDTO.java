@@ -3,6 +3,7 @@ package dev.creative.creative.dto;
 
 import lombok.*;
 
+// Token Data Transfer Object
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString

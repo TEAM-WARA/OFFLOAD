@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 
+// 물품 보관 요청서 DAO 구현체
 @Repository
 public class StorageDAOImpl implements StorageDAO {
 

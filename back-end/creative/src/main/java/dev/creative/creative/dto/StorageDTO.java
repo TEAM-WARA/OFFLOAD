@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+// Storage Data Transfer Object
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -17,6 +18,7 @@ public class StorageDTO {
     private Long id;
     private String name;
     private String storeEmail;
+    private Long storeId;
     private String content;
     private String start;
     private String expiration;
