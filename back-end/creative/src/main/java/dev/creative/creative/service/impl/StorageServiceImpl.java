@@ -162,7 +162,7 @@ public class StorageServiceImpl implements StorageService {
             StorageEntity storageEntity = this.storageDAO.readStorage(id);
 
             logger.info(storageEntity.toString());
-            if (storageEntity.getEmail().equals(email) && !storageEntity.getAllow()) {
+            if (storageEntity.getStoreEmail().equals(email) && !storageEntity.getAllow()) {
                 storageEntity.setAllow(true);
                 storageEntity = this.storageDAO.createStorage(storageEntity);
                 StorageDTO storageDTO = StorageDTO.builder()
@@ -190,7 +190,7 @@ public class StorageServiceImpl implements StorageService {
     public ResponseEntity<StorageDTO> deniedStorage(String email, Long id) {
         try{
             StorageEntity storageEntity = this.storageDAO.readStorage(id);
-            if (storageEntity.getEmail().equals(email)) {
+            if (storageEntity.getStoreEmail().equals(email)) {
                 storageEntity.setName("DENIED REQUEST");
                 storageEntity.setAllow(false);
                 storageEntity.setContent("물품 보관 요청이 거부되었습니다.");
