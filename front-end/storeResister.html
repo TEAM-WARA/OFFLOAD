@@ -98,18 +98,19 @@ https://templatemo.com/tm-591-villa-agency
         <div class="col-lg-7">
           <div id="map">
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=73d7b4df5db725a005c3a88893e7b040&libraries=services"></script>
-            <div id="storeMap">10</div>
+            <div id="storeMap"style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);"></div>
           </div>
-
         </div>
         <div class="col-lg-5">
           <form id="contact-form" action="" method="post">
             <div class="row">
               <div class="col-lg-12">
-                <fieldset>
-                  <label for="message">Message</label>
-                  <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                <fieldset style="display: flex; justify-content: space-between;">
+                  <label for="imageUpload">가게 이미지</label>
+                  <button type="button" id="uploadButton">이미지 첨부하기</button>
+                  <input type="file" name="image" id="imageUpload" accept="image/*" style="display: none;" >
                 </fieldset>
+                <img id="imagePreview" src="https://img.icons8.com/pastel-glyph/2x/image-file.png" alt="Image preview..." style="width: 100%; height: auto;">
               </div>
               <div class="col-lg-12">
                 <fieldset>
@@ -120,18 +121,18 @@ https://templatemo.com/tm-591-villa-agency
               <div class="col-lg-12">
                 <fieldset>
                   <label for="email">가게주소</label>
-                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..." required="">
+                  <input type="text" name="storeAddress" id="storeAddress" placeholder="Your Address" required="">
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <label for="subject">전화번호</label>
-                  <input type="subject" name="subject" id="subject" placeholder="Subject..." autocomplete="on" >
+                  <label for="subject">이메일</label>
+                  <input type="subject" name="email" id="email"pattern="[^ @]*@[^ @]*" placeholder="Email..." placeholder="Your E-mail..." required="" >
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <button type="submit" id="form-submit" class="orange-button">가게 등록하기</button>
+                  <button type="button" id="createStoreButton" class="orange-button">가게 등록하기</button>
                 </fieldset>
               </div>
             </div>
