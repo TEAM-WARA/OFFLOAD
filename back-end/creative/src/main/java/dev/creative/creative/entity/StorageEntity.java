@@ -34,6 +34,9 @@ public class StorageEntity {
     private String email;
 
     @Column
+    private String phone;
+
+    @Column
     @Builder.Default
     @ElementCollection
     private List<Long> images = new ArrayList<>();

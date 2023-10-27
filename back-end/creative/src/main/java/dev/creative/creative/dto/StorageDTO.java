@@ -24,5 +24,6 @@ public class StorageDTO {
     private List<Long> images = new ArrayList<>();
     private String email;
     private Boolean allow;
+    private String phone;
 
 }
