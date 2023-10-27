@@ -47,7 +47,7 @@ public class StoreDAOImpl implements StoreDAO {
     @Override
     public List<StoreEntity> readAllStoreBetweenSquare(RangeDTO rangeDTO) {
         return this.storeRepository
-                .getStoreEntitiesByCoordinateXBetweenAndCoordinateYBetween(rangeDTO.getMinX(), rangeDTO.getMinY(), rangeDTO.getMaxX(), rangeDTO.getMaxY());
+                .getStoreEntitiesByCoordinateXBetweenAndCoordinateYBetween(rangeDTO.getMinX(), rangeDTO.getMaxX(),rangeDTO.getMinY(),  rangeDTO.getMaxY());
     }
 
     @Override
