@@ -82,10 +82,14 @@ https://templatemo.com/tm-591-villa-agency
   </header>
   <!-- ***** Header Area End ***** -->
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=73d7b4df5db725a005c3a88893e7b040&libraries=services"></script>
-  <div class="container-fluid" style="padding: 0;"> <!-- container-fluid 사용하여 패딩 제거 -->
-    <div class="row" style="margin: 0;"> <!-- 마진 제거 -->
-        <div id="map"></div>
+   <div class="container-fluid" style="padding: 0; margin-bottom: 0;"> <!-- container-fluid 사용하여 패딩 제거 -->
+   <div class="row" style="margin: 0; margin-bottom: 0;"> <!-- 마진 제거 -->
+        <div id="map" style="z-index: 0;"></div>
     </div>
+    <form id="searchForm" class="col-12">
+      <input type="text" id="searchBox" placeholder="Enter text here..."/>
+      <button id="searchButton">Search</button>
+      <form>
 </div>
 <script src="app.js"></script>
 

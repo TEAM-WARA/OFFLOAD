@@ -7,10 +7,13 @@ html, body {
 
 
 form {
-  width: 50%;  /* form 요소의 너비를 50%로 설정 */
   margin: 20px auto;  /* 위쪽과 아래쪽 마진을 20px, 좌측과 우측 마진을 자동으로 설정하여 가운데 정렬 */
   transform: translateY(-200px); 
-  margin: 0 auto;  /* #map 요소를 화면 가운데에 배치 */
+  /* margin: 0 auto;  #map 요소를 화면 가운데에 배치 */
+  position: absolute;
+  left: 90%;
+  top: 17%;
+  transform: translate(-50%, -50%);
 }
 
 /* 팝업 스타일 */
@@ -23,15 +26,15 @@ form {
   flex-direction: column;
   top: 180px;
   left :800px;
-   width :300px; 
+   width : 40vw; 
    background-color:#FFFFFF; 
    padding:5px; 
 }
 
 .img-box {
    position:relative; 
-   width:100%; 
-   height:90px; 
+   width: 39.5vw; /* 뷰포트 너비의 40% */
+   height: 20vh; /* 뷰포트 높이의 20% */
    border-radius:10px; 
    background:#f5f5f5 url() no-repeat center;  
    background-size: cover;
@@ -75,24 +78,51 @@ form {
 /* 팝업 스타일 끝 */
 
 /* 검색창 디자인 */
-#searchBox {
+/* #searchBox {
 padding: 10px;
 font-size: 16px;
 border-radius: 5px;
-border: 1px solid #ccc;
+border: 1px solid #313131;
 }
 
 #searchButton {
 padding: 10px;
 font-size: 16px;
-background-color: #4CAF50; 
+background-color: #4a4a4a7d; 
 color: white; 
 border-radius: 5px; 
 border:none; 
 }
 
 #searchButton:hover {
-background-color:#45a049;
-}
+background-color:#5c5c5c;
+} */
 /* 검색창 디자인 끝 */
 
+/* 검색창 디자인 */
+#searchBox {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.06);
+}
+
+#searchButton {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #353535; 
+  color: white; 
+  border-radius: 10px; 
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 0 15px 5px rgba(9, 9, 9, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+  background-color: #020202;
+}
+/* 검색창 디자인 끝 */

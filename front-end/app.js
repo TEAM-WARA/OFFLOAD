@@ -31,7 +31,7 @@ var circle = new kakao.maps.Circle({
     fillOpacity: 0  // 채우기 불투명도 입니다 
 
 }); 
-var centerAround = circle.getBounds();
+var centerAround = circle.getBounds(); 
 console.log(centerAround);
 
 
@@ -39,11 +39,11 @@ console.log(centerAround);
 var swLatLng = centerAround.getSouthWest();
 var neLatLng = centerAround.getNorthEast();
 
-var circleXY = {
-    "minX" : swLatLng.getLng(),
-    "minY" : swLatLng.getLat(),
-    "maxX" : neLatLng.getLng(),
-    "maxY" : neLatLng.getLat(),
+var circleXY = { 
+    "minX" : swLatLng.getLng(), // 남서쪽 경도
+    "minY" : swLatLng.getLat(), // 남서쪽 위도
+    "maxX" : neLatLng.getLng(), // 북동쪽 경도
+    "maxY" : neLatLng.getLat(), // 북동쪽 위도
 };
 
 var prevLatlng// 이전 중심 좌표를 저장할 변수
@@ -58,9 +58,9 @@ kakao.maps.event.addListener(map, 'center_changed', function() {
     var latlng = map.getCenter();   
 
 
-    circle.setPosition(latlng);
-    circle.setRadius(level * 1000);
-    circle.setMap(map);
+    circle.setPosition(latlng); // 지도의 중심좌표를 원의 중심으로 설정합니다
+    circle.setRadius(level * 1000); // 원의 반지름을 지도의 레벨 * 1000으로 설정합니다
+    circle.setMap(map); // 원을 지도에 표시합니다
 
     // 이전 중심 좌표가 있고, 새로운 중심 좌표와의 차이가 0.001 미만이면 AJAX 요청을 보내지 않습니다
     if (prevLatlng && Math.abs(prevLatlng.getLat() - latlng.getLat()) < 0.1 && Math.abs(prevLatlng.getLng() - latlng.getLng()) < 0.1) {
@@ -142,6 +142,19 @@ function createMarkerImage(markerScr, markerSize) {
   selectedMarker = null; // 클릭한 마커를 담을 변수
 
 
+
+// 지도 검색 기능
+  var search = document.getElementById("searchForm");
+
+  search.addEventListener("submit", function(event) {
+      event.preventDefault();
+      var searchValue = document.getElementById("searchBox").value;
+      console.log(searchValue);
+      searchPlace(searchValue);
+  }
+  );
+
+
 searchPlace = (place)=>{
     // 키워드로 장소를 검색합니다
     ps.keywordSearch("대구" + place, placesSearchCB); 
@@ -166,17 +179,6 @@ searchPlace = (place)=>{
 }
 
 
-// 검색창 값 변환
-function myFunction(event) {
-    event.preventDefault();
-    var searchValue = document.getElementById("searchBox").value;
-    document.getElementById("result").innerHTML = "You entered: " + searchValue;
-    searchPlace(searchValue);
-  }
-
-
-
-
 
 function initKakaoMap() {
 
@@ -196,11 +198,12 @@ markerList.forEach(function(markerInfo) {
         marker.clickImage = clickImage;
 
     markers.push(marker);
+    console.log(markerList);
 
     // Popup창 정보, 디자인
     var popupContent =`
     <div class='content'>
-      <div class='img-box'>
+        <div class='img-box' style='background: #f5f5f5 url(https://port-0-creativefusion-jvpb2aln5qmjmz.sel5.cloudtype.app/image/${markerInfo.images[1]}) no-repeat center; background-size: cover;'>
         <a href='javascript:void(0)' onclick='onClose()' class='btn-close'></a>
       </div>
       <div class='info-box'>
