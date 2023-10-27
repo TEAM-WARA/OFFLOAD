@@ -5,13 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KakaoMap</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=73d7b4df5db725a005c3a88893e7b040"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=73d7b4df5db725a005c3a88893e7b040&libraries=services"></script>
     <canvas></canvas>
     
-    <div id="map" style="width:70%;height:350px;"></div>
-    
+    <div id="map"></div>
+    <div>
+        <form onSubmit="myFunction(event)">
+            <input type="text" id="searchBox" placeholder="Enter text here..."/>
+            <button id="searchButton">Search</button>
+        </form>
+        <p id="result" style="transform: translateY(-200px); margin: 0 auto;"></p>
+    </div>
+
+
+
+
+
     <script src="app.js"></script>
 </body>
 </html>

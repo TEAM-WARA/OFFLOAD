@@ -6,11 +6,17 @@ html, body {
 }
 
 #map {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    margin: 0 auto;  /* #map 요소를 화면 가운데에 배치 */
+    transform: translateY(-200px); 
   }
+
+form {
+    width: 50%;  /* form 요소의 너비를 50%로 설정 */
+    margin: 20px auto;  /* 위쪽과 아래쪽 마진을 20px, 좌측과 우측 마진을 자동으로 설정하여 가운데 정렬 */
+    transform: translateY(-200px); 
+    margin: 0 auto;  /* #map 요소를 화면 가운데에 배치 */
+}
 
   /* 팝업 스타일 */
 .content {
@@ -72,3 +78,25 @@ html, body {
   
   }
   /* 팝업 스타일 끝 */
+
+  /* 검색창 디자인 */
+#searchBox {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#searchButton {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4CAF50; 
+  color: white; 
+  border-radius: 5px; 
+  border:none; 
+}
+
+#searchButton:hover {
+background-color:#45a049;
+}
+/* 검색창 디자인 끝 */
