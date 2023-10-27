@@ -4,12 +4,12 @@
 
 ## [프로젝트 노션 링크](https://changuii.notion.site/05f31923b46a40c29595437768ecb45b?pvs=4)  
 
-`메인 이미지`  
-![OFFLOAD 메인 사진](https://github.com/wara-capstone/CreativeFusion/assets/122252160/f1ac8deb-b605-42d9-98ed-f2119ddd1d92)
-`로그인 후 메인 이미지`  
-![OFFLOAD 메인 로그인 이미지](https://github.com/wara-capstone/CreativeFusion/assets/122252160/2292f547-7d6e-4c84-a285-1883c303c092)
+`메인 이미지`   
+![OFFLOAD 메인 사진](https://github.com/wara-capstone/CreativeFusion/assets/122252160/554b63c5-99e5-4f1d-ab8e-82aa60bab035)
+`로그인 후 메인 이미지`   
+![OFFLOAD 메인 로그인 이미지](https://github.com/wara-capstone/CreativeFusion/assets/122252160/1e850047-21c7-41a4-8590-ce13a1ab7836)
 `지도 페이지`  
-![OFFLOAD 지도 사진](https://github.com/wara-capstone/CreativeFusion/assets/122252160/c2cfb34c-5fd0-48c5-8998-bb30c6cc9384)
+![OFFLOAD 지도 사진](https://github.com/wara-capstone/CreativeFusion/assets/122252160/b1fb6f12-3664-4f45-aa6a-81c6fe46657b)
 
 
 
@@ -53,9 +53,13 @@ GIF Images
 
 ## 팀
 
+
+
+
+
 |[이창의](https://github.com/changuii)|[이민재](https://github.com/mimijae)|[류세민](https://github.com/ryusemin)|
 |:--:|:--:|:--:|
-| ![창의](https://github.com/wara-capstone/CreativeFusion/assets/122252160/0452b9a7-6529-4cdf-b46f-cb7a8a7f2222) | ![민재](https://github.com/wara-capstone/CreativeFusion/assets/122252160/a2108469-882b-4927-b3de-87581e00808f) | ![세민](https://github.com/wara-capstone/CreativeFusion/assets/122252160/5e690dfb-c02e-46e4-bdcf-00cc953bea2a) |
+| ![창의](https://github.com/wara-capstone/CreativeFusion/assets/122252160/021259e7-174c-4925-a232-fb15b6d0236e) | ![민재](https://github.com/wara-capstone/CreativeFusion/assets/122252160/8f5dad0f-f0ba-46f5-b4bd-4a5c64db65de) | ![세민](https://github.com/wara-capstone/CreativeFusion/assets/122252160/799b0d3f-dbf8-4024-abe2-a0f517eeed6d) |
 | Spring Boot | HTML,CSS,JS | HTML,CSS,JS |
 
 ## 구현 기능
