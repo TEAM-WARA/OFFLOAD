@@ -55,7 +55,8 @@ GIF Images
 
 |[이창의](https://github.com/changuii)|[이민재](https://github.com/mimijae)|[류세민](https://github.com/ryusemin)|
 |:--:|:--:|:--:|
-| ![창의](https://github.com/wara-capstone/CreativeFusion/assets/122252160/94e063c7-452c-4d2c-bc13-47ffaa4f00b1) | ![민재](https://github.com/wara-capstone/CreativeFusion/assets/122252160/a2108469-882b-4927-b3de-87581e00808f) | ![세민](https://github.com/wara-capstone/CreativeFusion/assets/122252160/5e690dfb-c02e-46e4-bdcf-00cc953bea2a)
+| ![창의](https://github.com/wara-capstone/CreativeFusion/assets/122252160/0452b9a7-6529-4cdf-b46f-cb7a8a7f2222)
+ | ![민재](https://github.com/wara-capstone/CreativeFusion/assets/122252160/a2108469-882b-4927-b3de-87581e00808f) | ![세민](https://github.com/wara-capstone/CreativeFusion/assets/122252160/5e690dfb-c02e-46e4-bdcf-00cc953bea2a)
 |
 | Spring Boot | HTML,CSS,JS | HTML,CSS,JS |
 
