@@ -102,6 +102,7 @@ public class AuthServiceImpl implements AuthService {
         logger.info("[getSignInResult] e-mail : {}", userDTO.getEmail());
 
         TokenDTO tokenDTO = new TokenDTO();
+        tokenDTO.setEmail(userDTO.getEmail());
         logger.info("[getSignInResult] 패스워드 비교 수행");
         try{
             try{// 패스워드 불일치

@@ -1,6 +1,7 @@
 package dev.creative.creative.dao.impl;
 
 import dev.creative.creative.dao.StoreDAO;
+import dev.creative.creative.dto.RangeDTO;
 import dev.creative.creative.entity.StoreEntity;
 import dev.creative.creative.repository.StoreRepository;
 import org.slf4j.Logger;
@@ -42,6 +43,13 @@ public class StoreDAOImpl implements StoreDAO {
     public List<StoreEntity> readAllStore() {
         return this.storeRepository.findAll();
     }
+
+    @Override
+    public List<StoreEntity> readAllStoreBetweenSquare(RangeDTO rangeDTO) {
+        return this.storeRepository
+                .getStoreEntitiesByCoordinateXBetweenAndCoordinateYBetween(rangeDTO.getMinX(), rangeDTO.getMinY(), rangeDTO.getMaxX(), rangeDTO.getMaxY());
+    }
+
     @Override
     public boolean deleteStore(long id) {
         if(this.storeRepository.existsById(id)){

@@ -1,6 +1,7 @@
 package dev.creative.creative.controller;
 
 
+import dev.creative.creative.dto.RangeDTO;
 import dev.creative.creative.dto.StoreDTO;
 import dev.creative.creative.service.StoreService;
 import io.swagger.annotations.*;
@@ -69,6 +70,20 @@ public class StoreController {
     @GetMapping()
     public ResponseEntity<List<StoreDTO>> readAllStore(){
         return this.storeService.readAllStore();
+    }
+
+    @ApiOperation(value = "Read Store Between Square", notes = "사각형 좌표 기준 상점 모두 가져오기")
+    @ApiResponses({
+            @ApiResponse(code=200, message = "성공"),
+            @ApiResponse(code=400, message = "값이 없습니다."),
+            @ApiResponse(code=401, message = "인증된 사용자가 아닙니다."),
+            @ApiResponse(code=403, message = "접근 권한이 없습니다.")
+    })
+    @GetMapping("/range")
+    public ResponseEntity<List<StoreDTO>> readAllStoreBetweenSquare(
+            @RequestBody RangeDTO rangeDTO
+            ){
+        return this.storeService.readAllStoreBetweenSquare(rangeDTO);
     }
 
     @ApiOperation(value = "Update Store", notes = "상점 정보 수정")

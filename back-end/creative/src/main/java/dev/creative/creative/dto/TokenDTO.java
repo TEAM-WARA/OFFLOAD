@@ -11,5 +11,5 @@ import lombok.*;
 @Builder
 public class TokenDTO {
     private String token;
-
+    private String email;
 }

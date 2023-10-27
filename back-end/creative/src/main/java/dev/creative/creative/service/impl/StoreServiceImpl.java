@@ -1,6 +1,7 @@
 package dev.creative.creative.service.impl;
 
 import dev.creative.creative.dao.StoreDAO;
+import dev.creative.creative.dto.RangeDTO;
 import dev.creative.creative.dto.StoreDTO;
 import dev.creative.creative.entity.StoreEntity;
 import dev.creative.creative.service.AddressService;
@@ -108,6 +109,25 @@ public class StoreServiceImpl implements StoreService {
                     .build();
             stores.add(storeDTO);
         }
+        return ResponseEntity.status(200).body(stores);
+    }
+
+    @Override
+    public ResponseEntity<List<StoreDTO>> readAllStoreBetweenSquare(RangeDTO rangeDTO) {
+        List<StoreDTO> stores = new ArrayList<>();
+        for(StoreEntity storeEntity : this.storeDAO.readAllStoreBetweenSquare(rangeDTO)){
+            StoreDTO storeDTO = StoreDTO.builder()
+                    .id(storeEntity.getId())
+                    .name(storeEntity.getName())
+                    .email(storeEntity.getEmail())
+                    .address(storeEntity.getAddress())
+                    .coordinateX(storeEntity.getCoordinateX())
+                    .coordinateY(storeEntity.getCoordinateY())
+                    .images(storeEntity.getImages())
+                    .build();
+            stores.add(storeDTO);
+        }
+
         return ResponseEntity.status(200).body(stores);
     }
 
