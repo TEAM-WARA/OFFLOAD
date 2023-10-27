@@ -103,6 +103,7 @@ public class AuthServiceImpl implements AuthService {
 
         TokenDTO tokenDTO = new TokenDTO();
         tokenDTO.setEmail(userDTO.getEmail());
+        tokenDTO.setRole(userEntity.getRoles().get(0).equals("ROLE_USER") ? "user" : "seller" );
         logger.info("[getSignInResult] 패스워드 비교 수행");
         try{
             try{// 패스워드 불일치
