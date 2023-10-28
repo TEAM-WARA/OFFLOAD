@@ -30,19 +30,16 @@ public class StoreServiceImpl implements StoreService {
     private final StoreDAO storeDAO;
     private final ImageService imageService;
     private final AddressService addressService;
-    private final AuthService authService;
 
 
     public StoreServiceImpl(
             @Autowired ImageService imageService,
             @Autowired StoreDAO storeDAO,
-            @Autowired AddressService addressService,
-            @Autowired AuthService authService
+            @Autowired AddressService addressService
     ){
         this.addressService = addressService;
         this.imageService = imageService;
         this.storeDAO = storeDAO;
-        this.authService = authService;
     }
 
     @Override
@@ -177,5 +174,26 @@ public class StoreServiceImpl implements StoreService {
             return ResponseEntity.status(200).body(true);
         }
         return ResponseEntity.status(400).body(false);
+    }
+
+    @Override
+    public ResponseEntity<StoreDTO> readStoreByEmail(String email) {
+        StoreEntity storeEntity = this.storeDAO.readStoreByEmail(email);
+        try{
+            StoreDTO storeDTO = StoreDTO.builder()
+                    .id(storeEntity.getId())
+                    .name(storeEntity.getName())
+                    .content(storeEntity.getContent())
+                    .email(storeEntity.getEmail())
+                    .phone(storeEntity.getPhone())
+                    .address(storeEntity.getAddress())
+                    .coordinateX(storeEntity.getCoordinateX())
+                    .coordinateY(storeEntity.getCoordinateY())
+                    .images(storeEntity.getImages())
+                    .build();
+            return ResponseEntity.status(200).body(storeDTO);
+        }catch (Exception e) {
+            return ResponseEntity.status(400).body(new StoreDTO());
+        }
     }
 }

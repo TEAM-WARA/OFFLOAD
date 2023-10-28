@@ -23,6 +23,8 @@ public interface StoreService {
     public ResponseEntity<StoreDTO> updateStore(Long id, StoreDTO storeDTO);
     // 상점 정보 삭제
     public ResponseEntity<Boolean> deleteStore(Long id);
+    // 상점 정보 이메일 기반 조회
+    public ResponseEntity<StoreDTO> readStoreByEmail(String email);
 
 
 }

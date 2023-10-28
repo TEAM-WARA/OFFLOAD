@@ -1,6 +1,7 @@
 package dev.creative.creative.dao;
 
 import dev.creative.creative.dto.RangeDTO;
+import dev.creative.creative.dto.StoreDTO;
 import dev.creative.creative.entity.StoreEntity;
 
 import java.util.List;
@@ -13,4 +14,5 @@ public interface StoreDAO {
     public List<StoreEntity> readAllStore();
     public List<StoreEntity> readAllStoreBetweenSquare(RangeDTO rangeDTO);
     public boolean deleteStore(long id);
+    public StoreEntity readStoreByEmail(String email);
 }

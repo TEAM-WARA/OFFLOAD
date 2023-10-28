@@ -14,4 +14,5 @@ public class TokenDTO {
     private String token;
     private String email;
     private String role;
+    private Long storeId;
 }
