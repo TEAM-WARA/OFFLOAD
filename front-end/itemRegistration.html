@@ -27,8 +27,6 @@ TemplateMo 591 villa agency
 https://templatemo.com/tm-591-villa-agency
 
 -->
-
-
   </head>
 
 <body>
@@ -60,7 +58,7 @@ https://templatemo.com/tm-591-villa-agency
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="map.html">지도</a></li>
-                      <li id="storeManageItem"><a href="store_management.html">가게 물품 관리</a></li> <!-- id 추가 -->
+                      <li><a href="properties.html">가게 물품 관리</a></li>
                       <li id="loginMenuItem">
                         <a href="#" id="loginMenu">로그인</a>
                         <div class="dropdown-content" id="dropdownContent">
@@ -68,7 +66,7 @@ https://templatemo.com/tm-591-villa-agency
                         </div>
                     </li>
                     
-                      <li id="registeredItem"><a href="resister_goods.html"><i class="fa fa-calendar"></i> 등록한 물품</a></li>
+                      <li id="registeredItem"><a href="property-details.html"><i class="fa fa-calendar"></i> 등록한 물품</a></li>
 
                   </ul>    
                     <a class='menu-trigger'>
@@ -88,27 +86,19 @@ https://templatemo.com/tm-591-villa-agency
         <div class="col-lg-12">
           <span class="breadcrumb"><a href="#">
             Contact store</a></span>
-          <h3>가게 등록</h3>
+          <h3>물품 등록</h3>
         </div>
       </div>
     </div>
   </div>
   
-  <div class="contact-page section">
+  <div class="contact-page section"style="display: flex; justify-content: center;" >
     <div class="container">
-      <div class="row">
-        <div class="col-lg-7">
-          <div id="map">
-            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=73d7b4df5db725a005c3a88893e7b040&libraries=services"></script>
-            <div id="storeMap"style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);"></div>
-          </div>
-        </div>
         <div class="col-lg-5">
           <form id="contact-form" action="" method="post">
-            <div class="row">
               <div class="col-lg-12">
                 <fieldset style="display: flex; justify-content: space-between;">
-                  <label for="imageUpload">가게 이미지</label>
+                  <label for="imageUpload">물품 이미지</label>
                   <button type="button" id="uploadButton">이미지 첨부하기</button>
                   <input type="file" name="image" id="imageUpload" accept="image/*" style="display: none;" >
                 </fieldset>
@@ -116,13 +106,13 @@ https://templatemo.com/tm-591-villa-agency
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <label for="name">가게이름</label>
+                  <label for="name">물품 이름</label>
                   <input type="name" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <label for="email">가게주소</label>
+                  <label for="email">전화번호</label>
                   <input type="text" name="storeAddress" id="storeAddress" placeholder="Your Address" required="">
                 </fieldset>
               </div>
@@ -137,7 +127,7 @@ https://templatemo.com/tm-591-villa-agency
                   <button type="button" id="createStoreButton" class="orange-button">가게 등록하기</button>
                 </fieldset>
               </div>
-            </div>
+
           </form>
         </div>
       </div>
@@ -163,6 +153,39 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
   <script src="assets/js/storeRegistration.js"></script> <!-- s-->
-  <script src="assets/js/navigation_ID.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const userId = localStorage.getItem('email');
+    const loginMenuItem = document.getElementById('loginMenuItem');
+    const loginMenu = document.getElementById('loginMenu');
+    const dropdownContent = document.getElementById('dropdownContent');
+    const logoutAction = document.getElementById('logoutAction');
+    const registeredItem = document.getElementById('registeredItem'); // 추가한 부분
+
+    if (userId) {
+        // 로그인 상태일 경우
+        loginMenu.textContent = userId; // 사용자의 userid로 텍스트 변경
+        registeredItem.style.display = 'block'; // 등록한 물품 메뉴 항목 보이기 - 추가한 부분
+
+        logoutAction.addEventListener('click', function(event) {
+            event.preventDefault();
+            // 로그아웃 처리
+            localStorage.removeItem('token');
+            localStorage.removeItem('email');
+            // 페이지를 새로 고침하여 메뉴를 업데이트합니다.
+            location.reload();
+        });
+    } else {
+        // 로그아웃 상태일 경우
+        loginMenu.textContent = "로그인";
+        dropdownContent.style.display = "none"; // 드롭다운 메뉴 숨기기
+        registeredItem.style.display = 'none'; // 등록한 물품 메뉴 항목 숨기기 - 추가한 부분
+        loginMenuItem.addEventListener('click', function() {
+            window.location.href = 'login.html';
+        });
+    }
+});
+
+      </script>
   </body>
 </html>

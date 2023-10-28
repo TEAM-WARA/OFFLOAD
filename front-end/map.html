@@ -81,27 +81,19 @@ https://templatemo.com/tm-591-villa-agency
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
-
-  <div class="container-fluid" style="padding: 0;"> <!-- container-fluid 사용하여 패딩 제거 -->
-    <div class="row" style="margin: 0;"> <!-- 마진 제거 -->
-        <div id="map"></div>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=73d7b4df5db725a005c3a88893e7b040&libraries=services"></script>
+   <div class="container-fluid" style="padding: 0; margin-bottom: 0;"> <!-- container-fluid 사용하여 패딩 제거 -->
+   <div class="row" style="margin: 0; margin-bottom: 0;"> <!-- 마진 제거 -->
+        <div id="map" style="z-index: 0;"></div>
     </div>
+    <form id="searchForm" class="col-12">
+      <input type="text" id="searchBox" placeholder="Enter text here..."/>
+      <button id="searchButton">Search</button>
+      <form>
 </div>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=73d7b4df5db725a005c3a88893e7b040"></script>
 <script src="app.js"></script>
 
 
-
-
-  <footer>
-    <div class="container">
-      <div class="col-lg-12">
-        <p>Copyright © 2048 Villa Agency Co., Ltd. All rights reserved. 
-        
-        Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a> Distribution: <a href="https://themewagon.com">ThemeWagon</a></p>
-      </div>
-    </div>
-  </footer>
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
@@ -111,7 +103,7 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
-  <script src="app.js"></script>
+  <script src="assets/js/map.js"></script>
 
   <script src="assets/js/navigation_ID.js"></script>
   </body>
