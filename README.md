@@ -11,6 +11,9 @@
 `지도 페이지`  
 ![OFFLOAD 지도 사진](https://github.com/wara-capstone/CreativeFusion/assets/122252160/b1fb6f12-3664-4f45-aa6a-81c6fe46657b)
 
+`메인 로고`
+![OFF_LOAD 2-001](https://github.com/wara-capstone/CreativeFusion/assets/122252160/eed37fbc-975e-4e21-b8ad-126da0f2e2c3)
+
 
 
 목차
