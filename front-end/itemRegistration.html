@@ -92,42 +92,71 @@ https://templatemo.com/tm-591-villa-agency
     </div>
   </div>
   
-  <div class="contact-page section"style="display: flex; justify-content: center;" >
+  <div class="contact-page section">
     <div class="container">
-        <div class="col-lg-5">
+      <div class="row"style="display: flex; justify-content: space-between;">
+        <div class="col-lg-6">
           <form id="contact-form" action="" method="post">
+            <div class="row">
               <div class="col-lg-12">
                 <fieldset style="display: flex; justify-content: space-between;">
                   <label for="imageUpload">물품 이미지</label>
+                  <div class="row">
                   <button type="button" id="uploadButton">이미지 첨부하기</button>
+                  <button type="button" id="cameraButton">촬영하기</button>
+                  </div>
                   <input type="file" name="image" id="imageUpload" accept="image/*" style="display: none;" >
                 </fieldset>
                 <img id="imagePreview" src="https://img.icons8.com/pastel-glyph/2x/image-file.png" alt="Image preview..." style="width: 100%; height: auto;">
               </div>
+            </div>
+          </form>
+        </div> 
+        <div class="col-lg-6">
+          <form id="contact-form" action="" method="post">
+            <div class="row">
               <div class="col-lg-12">
                 <fieldset>
                   <label for="name">물품 이름</label>
-                  <input type="name" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
+                  <input type="name" name="name" id="name" placeholder="이름 입력" autocomplete="on" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <label for="email">전화번호</label>
-                  <input type="text" name="storeAddress" id="storeAddress" placeholder="Your Address" required="">
+                  <label for="subject">전화번호</label>
+                  <input type="subject" name="phoneNum" id="phoneNum" placeholder="전화번호 입력" required="" >
+                </fieldset>
+              </div>
+              <div class="row"style="display: flex; justify-content: space-between;">
+              <div class="col-lg-6">
+                <fieldset>
+                  <form>
+                    <label for="birthday">보관일</label><br>
+                    <input type="datetime-local" id="startDate" name="startDate"><br>
+                  </form>
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset>
+                  <form>
+                    <label for="birthday">회수일</label><br>
+                    <input type="datetime-local" id="expirationDate" name="expirationDate"><br>
+                  </form>
+                </fieldset>
+              </div>
+            </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="message">요청사항</label>
+                  <textarea name="content" id="content" placeholder="요청사항 입력"></textarea>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <label for="subject">이메일</label>
-                  <input type="subject" name="email" id="email"pattern="[^ @]*@[^ @]*" placeholder="Email..." placeholder="Your E-mail..." required="" >
+                  <button type="button" id="itemButton" class="orange-button">물품 보관요청</button>
                 </fieldset>
               </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <button type="button" id="createStoreButton" class="orange-button">가게 등록하기</button>
-                </fieldset>
-              </div>
-
+            </div>
           </form>
         </div>
       </div>
@@ -152,7 +181,7 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
-  <script src="assets/js/storeRegistration.js"></script> <!-- s-->
+  <script src="assets/js/itemRegistration.js"></script> <!-- s-->
   <script>
 document.addEventListener("DOMContentLoaded", function() {
     const userId = localStorage.getItem('email');
