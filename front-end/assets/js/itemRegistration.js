@@ -50,57 +50,78 @@ document.getElementById('imageUpload').addEventListener('change', function(e) {
 });
 
 
-  document.getElementById("itemButton").addEventListener("click",
-    function () {
+
+const urlParams = new URLSearchParams(window.location.search);
+const storeid = urlParams.get('storeid');
+const token = sessionStorage.getItem('token');
+const useremail = sessionStorage.getItem('email');
+
+// Fetching the store details using the GET request
+function fetchStoreDetails(storeid) {
+    return fetch(`https://port-0-creativefusion-jvpb2aln5qmjmz.sel5.cloudtype.app/store/${storeid}`, {
+        method: 'GET',
+        headers: {
+            "Authorization": `${token}`
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error('Failed to fetch store details.');
+    });
+}
+
+document.getElementById("itemButton").addEventListener("click", function () {
+    fetchStoreDetails(storeid).then(storeData => {
         var data = {
             "name": document.getElementById("name").value,
-            "storeEmail": "상점이메일",
-            "storeId": 1,
-            "address": "상점주소",
+            "storeEmail": storeData.email,
+            "storeId": storeid,
             "content": document.getElementById("content").value,
             "start" : document.getElementById("startDate").value,
             "expiration" : document.getElementById("expirationDate").value,
+            "email" : useremail,
             "phone" : document.getElementById("phoneNum").value,
-
         };
+
         var formData = new FormData();
-        formData.append('images', document.getElementById("imageUpload").files[0]); // 이미지
+        formData.append('images', document.getElementById("imageUpload").files[0]); 
         formData.append('data', new Blob([JSON.stringify(data)], { type: "application/json" }));
-        console.log(formData);
-        // formData에 이미지와 json을 합친
+
         for (let value of formData.values()) {
             if (value instanceof Blob) {
                 var reader = new FileReader();
                 reader.onload = function () {
-                    console.log(reader.result); // Blob 내부 데이터를 콘솔에 출력
+                    console.log(reader.result);
                 };
                 reader.readAsText(value);
             } else {
                 console.log(value);
             }
         }
+
         fetch('https://port-0-creativefusion-jvpb2aln5qmjmz.sel5.cloudtype.app/storage', {
             method: 'POST',
             headers: {
-                // "Content-Type" : "multipart/form-data",
-                // "Authorization" : document.getElementById("message").value
+                "Authorization": `${token}`
             },
             body: formData
         })
-            .then(response => {
-                if (response.ok) {
-                    return response.json(); // JSON 형식의 응답을 파싱
-                }
-                throw new Error('네트워크 응답이 실패했습니다.');
-            })
-            .then(data => {
-                alert('성공!');
-                console.log(data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-
-    }
-
-)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('네트워크 응답이 실패했습니다.');
+        })
+        .then(data => {
+            alert('성공!');
+            window.location.href = 'resister_goods.html';
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }).catch(error => {
+        console.error(error);
+    });
+});

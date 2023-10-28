@@ -182,39 +182,6 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
   <script src="assets/js/itemRegistration.js"></script> <!-- s-->
-  <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const userId = localStorage.getItem('email');
-    const loginMenuItem = document.getElementById('loginMenuItem');
-    const loginMenu = document.getElementById('loginMenu');
-    const dropdownContent = document.getElementById('dropdownContent');
-    const logoutAction = document.getElementById('logoutAction');
-    const registeredItem = document.getElementById('registeredItem'); // 추가한 부분
-
-    if (userId) {
-        // 로그인 상태일 경우
-        loginMenu.textContent = userId; // 사용자의 userid로 텍스트 변경
-        registeredItem.style.display = 'block'; // 등록한 물품 메뉴 항목 보이기 - 추가한 부분
-
-        logoutAction.addEventListener('click', function(event) {
-            event.preventDefault();
-            // 로그아웃 처리
-            localStorage.removeItem('token');
-            localStorage.removeItem('email');
-            // 페이지를 새로 고침하여 메뉴를 업데이트합니다.
-            location.reload();
-        });
-    } else {
-        // 로그아웃 상태일 경우
-        loginMenu.textContent = "로그인";
-        dropdownContent.style.display = "none"; // 드롭다운 메뉴 숨기기
-        registeredItem.style.display = 'none'; // 등록한 물품 메뉴 항목 숨기기 - 추가한 부분
-        loginMenuItem.addEventListener('click', function() {
-            window.location.href = 'login.html';
-        });
-    }
-});
-
-      </script>
+  <script src="assets/js/navigation_ID.js"></script> <!-- s-->
   </body>
 </html>
