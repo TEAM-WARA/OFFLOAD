@@ -24,6 +24,9 @@ public class StoreEntity {
     private String name;
 
     @Column
+    private String content;
+
+    @Column
     private String email;
 
     @Column

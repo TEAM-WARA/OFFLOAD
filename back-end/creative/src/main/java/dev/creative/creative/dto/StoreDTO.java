@@ -17,6 +17,7 @@ import java.util.List;
 public class StoreDTO {
     private long id;
     private String name;
+    private String content;
     private String address;
     private Double coordinateX;
     private Double coordinateY;
