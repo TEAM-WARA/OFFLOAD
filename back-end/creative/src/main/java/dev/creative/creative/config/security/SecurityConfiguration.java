@@ -39,12 +39,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // 허용할 주소 ex: 로그인, 회원가입
                 //.antMatchers("/**").permitAll()
-                .antMatchers("/auth/**", "/image/**", "/api-docs/**" , "/swagger-ui/**","/swagger-resources/**", "/v2/api-docs/**").permitAll()
+                .antMatchers("/auth/**", "/image/**", "/api-docs/**" , "/swagger-ui/**","/swagger-resources/**", "/v2/api-docs/**", "/store/**").permitAll()
                 // 인증이 완료되면 모든 api 접근 허용
                 // 판매자만 접근할 수 있는 경로 설정
                 //.antMatchers("/store/**").hasRole("SELLER")
                 // 판매자와 유저 모두 접근할 수 있는 경로 설정
-                .antMatchers("/storage/**", "/store/**").hasAnyRole("SELLER", "USER", "ADMIN")
+                .antMatchers("/storage/**").hasAnyRole("SELLER", "USER", "ADMIN")
                         // 개발용 설정
                 //.anyRequest().hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
                 .anyRequest().hasAuthority("ROLE_ADMIN")

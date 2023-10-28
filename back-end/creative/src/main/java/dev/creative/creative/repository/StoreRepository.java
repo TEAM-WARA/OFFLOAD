@@ -13,6 +13,6 @@ public interface StoreRepository extends JpaRepository<StoreEntity, Long> {
     // SELECT * FROM store WHERE coordinate_x BETWEEN (?, ?) AND coordinate_y BETWEEN (?, ?)
     public List<StoreEntity> getStoreEntitiesByCoordinateXBetweenAndCoordinateYBetween(Double minX,  Double maxX, Double minY, Double maxY);
 
-    public StoreEntity getStoreEntityByEmail(String email);
+    public List<StoreEntity> getStoreEntityByEmail(String email);
     public boolean existsByEmail(String email);
 }

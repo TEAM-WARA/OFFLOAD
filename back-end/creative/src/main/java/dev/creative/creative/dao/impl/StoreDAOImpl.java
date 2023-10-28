@@ -65,7 +65,7 @@ public class StoreDAOImpl implements StoreDAO {
     @Override
     public StoreEntity readStoreByEmail(String email) {
         if(this.storeRepository.existsByEmail(email)) {
-            return this.storeRepository.getStoreEntityByEmail(email);
+            return this.storeRepository.getStoreEntityByEmail(email).get(0);
         }else {
             return null;
         }
