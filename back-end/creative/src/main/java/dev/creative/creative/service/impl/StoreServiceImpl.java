@@ -193,7 +193,7 @@ public class StoreServiceImpl implements StoreService {
                     .build();
             return ResponseEntity.status(200).body(storeDTO);
         }catch (Exception e) {
-            return ResponseEntity.status(400).body(new StoreDTO());
+            return ResponseEntity.status(400).body(StoreDTO.builder().id(0).build());
         }
     }
 }
