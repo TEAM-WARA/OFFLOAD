@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
             sessionStorage.removeItem('token');    // 수정된 부분
             sessionStorage.removeItem('email');   // 수정된 부분
             sessionStorage.removeItem('role');    // 수정된 부분
-            location.reload();
+            window.location.href = 'index.html';
         });
     } else {
         loginMenu.textContent = "로그인";
