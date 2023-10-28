@@ -12,7 +12,7 @@ var map = new kakao.maps.Map(mapDiv, mapOption);  // 지도를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder(); // 주소-좌표 변환 객체를 생성합니다
 
 mapDiv.style.width = '100%';   //MapSize 조절
-mapDiv.style.height = '500px';
+mapDiv.style.height = '1000px';
 
 map.relayout();
 
@@ -75,7 +75,9 @@ document.getElementById("createStoreButton").addEventListener("click",
         var data = {
             "name": document.getElementById("name").value,
             "email": document.getElementById("email").value,
-            "address": document.getElementById("storeAddress").value
+            "address": document.getElementById("storeAddress").value,
+            "phone" : document.getElementById("phone").value,
+            "content" : document.getElementById("content").value
         };
         var formData = new FormData();
         formData.append('images', document.getElementById("imageUpload").files[0]); // 이미지
@@ -110,7 +112,7 @@ document.getElementById("createStoreButton").addEventListener("click",
             .then(data => {
                 alert('성공!');
                 console.log(data);
-                window.location.href = 'properties.html';
+                // window.location.href = 'properties-details.html?storeid=14'; // 생성한 상점의 상세페이지로 이동
             })
             .catch(error => {
                 console.error(error);

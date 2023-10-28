@@ -205,14 +205,14 @@ markerList.forEach(function(markerInfo) {
     <div class='content'>
         <div class='img-box' style='background: #f5f5f5 url(https://port-0-creativefusion-jvpb2aln5qmjmz.sel5.cloudtype.app/image/${markerInfo.images[1]}) no-repeat center; background-size: contain;'>
         <a href='javascript:void(0)' onclick='onClose()' class='btn-close'></a>
-      </div>
-      <div class='info-box'>
+        </div>
+        <div class='info-box'>
         <p style='margin-bottom: 7px; overflow: hidden;'>
-          <span class='tit'>${markerInfo.name}</span>
-          <a href='itemRegistration.html' target='_blank' class='link' style='color: #3D6DCC; font-size: 13px; float: right;'>물품등록</a>
+            <span class='tit'>${markerInfo.name}</span>
+            <button class='link btn-register' data-store-id='${markerInfo.id}' style='color: #3D6DCC; font-size: 13px; float: right;'>물품등록</button>
         </p>
         <p><span class='new-addr'>${markerInfo.address}</span></p>
-        <p><span class='old-addr'>${markerInfo.id}</span></p>
+        <p><span class='old-addr'>${markerInfo.email}</span></p>
       </div>
     </div>`;  
 
@@ -256,7 +256,7 @@ function removePopup(){
     if(mapDiv.lastChild.className == "popup"){
         mapDiv.removeChild(mapDiv.lastChild);
     }
- }
+}
 
     // 마커에 click 이벤트를 등록합니다
     kakao.maps.event.addListener(marker, 'click', function() {
@@ -290,6 +290,29 @@ function removePopup(){
 
 
 }
+
+$(document).on("click", ".content .btn-register", function() {
+    const storeid = $(this).data('store-id');
+    const storeEmail = $(this).data('store-Email');
+
+    // Check if the user is logged in
+    const token = sessionStorage.getItem('token');
+    const email = sessionStorage.getItem('email');
+
+    if (token && email) {
+        // User is logged in, redirect to the item registration page
+        window.location.href = `itemRegistration.html?storeid=${storeid}`;
+    } else {
+        // User is not logged in, show a warning message
+        if(confirm("로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?")) {
+            // If user clicks "OK", redirect to the login page
+            window.location.href = 'login.html';
+        }
+        // If user clicks "Cancel", do nothing and stay on the current page
+    }
+});
+
+
 
 window.onload = function() {
     initKakaoMap();
