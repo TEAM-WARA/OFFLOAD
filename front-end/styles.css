@@ -24,10 +24,10 @@ form {
   box-shadow: 5px 5px 5px #00000040;
   border-radius: 10px;
   flex-direction: column;
-  top: -50vh; /* 상하 위치 조정 */
-  left: -100vh; /* 좌우 위치 조정 */
-  width: 20vw; /* 좌우 크기 조정 */
-  height: 60vh; /* 위아래 크기 조정 */
+  top: -15vh; /* 상하 위치 조정 */
+  left: -12vw; /* 좌우 위치 조정 */
+  width: 30vw; /* 좌우 크기 조정 */
+  height: 30vh; /* 위아래 크기 조정 */
   background-color: #FFFFFF;
   padding: 5px;
 }
@@ -90,6 +90,7 @@ form {
   border: none;
   outline: none;
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.06);
+  width: 20vw;
 }
 
 #searchButton {

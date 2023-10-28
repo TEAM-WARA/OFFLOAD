@@ -212,7 +212,7 @@ markerList.forEach(function(markerInfo) {
           <a href='itemRegistration.html' target='_blank' class='link' style='color: #3D6DCC; font-size: 13px; float: right;'>물품등록</a>
         </p>
         <p><span class='new-addr'>${markerInfo.address}</span></p>
-        <p><span class='old-addr'>${markerInfo.id}</span></p>
+        <p><span class='old-addr'>${markerInfo.email}</span></p>
       </div>
     </div>`;  
 

@@ -35,15 +35,18 @@ document.getElementById('imageUpload').addEventListener('change', function(e) {
 
 // 'cameraButton' id를 가진 버튼을 클릭하면 카메라를 실행합니다.
 document.getElementById('cameraButton').addEventListener('click', function() {
-    document.getElementById('imageUpload').setAttribute('capture', 'camera');
-    document.getElementById('imageUpload').click();
+    var input = document.getElementById('imageUpload');
+    // input.setAttribute('capture', 'camera');
+    input.click();
 });
 
 // 파일 입력 요소에서 사진을 찍거나 선택하면 'change' 이벤트가 발생하며 설정된 이벤트 리스너 함수가 실행됩니다.
 document.getElementById('imageUpload').addEventListener('change', function(e) {
     var file = e.target.files[0];
-    // 이곳에서 file 객체를 이용해 필요한 처리를 진행합니다.
-    // 예를 들어, file 객체를 서버에 업로드하거나, 이미지를 미리 보여주는 등의 작업을 수행할 수 있습니다.
+    if (file) {
+        // 이곳에서 file 객체를 이용해 필요한 처리를 진행합니다.
+        // 예: 파일을 서버에 업로드하거나 이미지를 미리 보여주기 등
+    }
 });
 
 
