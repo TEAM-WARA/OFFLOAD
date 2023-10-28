@@ -1,5 +1,5 @@
 const { kakao } = window;
-
+const token = sessionStorage.getItem('token');
 var mapDiv = document.querySelector('#map'), // 지도를 표시할 div 
     mapOption = { 
         center: new kakao.maps.LatLng(35.856047838165004, 128.49278206824263), // 지도의 중심좌표 (35.8678658, 128.5967954)
@@ -95,7 +95,7 @@ var BodyJson = JSON.stringify(circleXY);
         type: 'POST',
         headers:{
             "Content-type": "application/json; charset=utf-8",
-            "Authorization" : "access token",
+            "Authorization": `${token}`
         },
         url: "https://port-0-creativefusion-jvpb2aln5qmjmz.sel5.cloudtype.app/store/range",
         data: BodyJson,
@@ -123,8 +123,8 @@ let currentPopup = null; // 현재 열려있는 팝업 정보를 저장하는 �
 var imageSize = new kakao.maps.Size(26, 38); // 마커의 크기 기존 33, 36
 var choiceImageSize = new kakao.maps.Size(28, 40); // 선택한 마커의 크기 기존 38, 40
 
-var imageSrc = "iconImage/iconRed.png", // 이미지의 경로
-    imageSrc2 = "iconImage/iconBlue.png";
+var imageSrc = "assets/icon/iconImage/iconRed.png", // 이미지의 경로
+    imageSrc2 = "assets/icon/iconImage/iconBlue.png";
 
 
 // MakrerImage 객체를 생성하여 반환하는 함수
@@ -203,7 +203,7 @@ markerList.forEach(function(markerInfo) {
     // Popup창 정보, 디자인
     var popupContent =`
     <div class='content'>
-        <div class='img-box' style='background: #f5f5f5 url(https://port-0-creativefusion-jvpb2aln5qmjmz.sel5.cloudtype.app/image/${markerInfo.images[1]}) no-repeat center; background-size: contain;'>
+        <div class='img-box' style='background: #f5f5f5 url(https://port-0-creativefusion-jvpb2aln5qmjmz.sel5.cloudtype.app/image/${markerInfo.images[0]}) no-repeat center; background-size: contain;'>
         <a href='javascript:void(0)' onclick='onClose()' class='btn-close'></a>
         </div>
         <div class='info-box'>

@@ -42,7 +42,7 @@ document.getElementById('LoginButton').addEventListener('click', async function(
         sessionStorage.setItem('token', result.token);
         sessionStorage.setItem('email', result.email);  // 여기서 userid를 저장합니다.
         sessionStorage.setItem('role', result.role);    // 여기서 role를 저장합니다.
-        // Redirect to map.html
+        sessionStorage.setItem('storeid', result.storeId);    // 여기서 role를 저장합니다.
         window.location.href = 'map.html';
     } else {
         alert("로그인에 실패하였습니다"); // token contains the error message in this case

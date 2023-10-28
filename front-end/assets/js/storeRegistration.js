@@ -1,4 +1,7 @@
 const { kakao } = window;
+const token = sessionStorage.getItem('token');
+
+var marker;
 
 var mapDiv = document.querySelector('#storeMap'), // 지도를 표시할 div 
     mapOption = { 
@@ -35,10 +38,14 @@ map.relayout();
     // 정상적으로 검색이 완료됐으면 
      if (status === kakao.maps.services.Status.OK) {
 
+        if (marker) { // 이전에 생성된 마커가 있으면
+            marker.setMap(null); // 마커를 지도에서 제거
+        }
         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
+
         // 결과값으로 받은 위치를 마커로 표시합니다
-        var marker = new kakao.maps.Marker({
+        marker = new kakao.maps.Marker({
             map: map,
             position: coords
         });
@@ -98,8 +105,7 @@ document.getElementById("createStoreButton").addEventListener("click",
         fetch('https://port-0-creativefusion-jvpb2aln5qmjmz.sel5.cloudtype.app/store', {
             method: 'POST',
             headers: {
-                // "Content-Type" : "multipart/form-data",
-                // "Authorization" : document.getElementById("message").value
+                "Authorization": `${token}`
             },
             body: formData
         })
@@ -111,7 +117,7 @@ document.getElementById("createStoreButton").addEventListener("click",
             })
             .then(data => {
                 alert('성공!');
-                console.log(data);
+                window.location.href = `property-details.html?storeid=${data.id}`;
                 // window.location.href = 'properties-details.html?storeid=14'; // 생성한 상점의 상세페이지로 이동
             })
             .catch(error => {
