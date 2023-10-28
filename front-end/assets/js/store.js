@@ -76,7 +76,7 @@ function fetchData(type) {
                             <img src="${imageSrc}" alt="">
                             <span class="category">${item.name} 님</span>
 
-                            <h4>010-1111-2222</h4>
+                            <h4>${item.phone}</h4>
 
                             <h4>${item.email}</h4>
 

@@ -52,9 +52,12 @@ function resisterGoods(type) {
             if(type === 'User_registeredItems'){
                 for (const item of data) {
                     let imageSrc = await fetchImage(item.images[0]);    
-    
+                    let buttonsHtml =`
+                    <div class="main-button">
+                        <button class="btn btn-primary ViewDetails" data-store-id="${item.storeId}">상세보기</button>
+                    </div>`;
+
                     if(item.allow) {
-                        console.log(item.allow);
                         propertiesBox.append(`
                         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6" data-item-id="${item.id}">
                             <span class="card-id">${item.id}</span>
@@ -62,7 +65,7 @@ function resisterGoods(type) {
                                 <img src="${imageSrc}" alt="">
                                 <span class="category">${item.name} 님</span>
     
-                                <h4>010-1111-2222</h4>
+                                <h4>${item.phone}</h4>
     
                                 <h4>${item.email}</h4>
     
@@ -72,7 +75,7 @@ function resisterGoods(type) {
                                     <li>시작시간: <span>${item.start}</span></li>
                                     <li>끝 시간: <span>${item.expiration}</span></li>
                                 </ul>
-        
+                                ${buttonsHtml}
                             </div>
                         </div>
                     `);
@@ -83,7 +86,6 @@ function resisterGoods(type) {
                     let imageSrc = await fetchImage(item.images[0]);    
     
                     if(!item.allow) {
-                        console.log(item.allow);
                         propertiesBox.append(`
                         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6" data-item-id="${item.id}">
                             <span class="card-id">${item.id}</span>
@@ -107,11 +109,7 @@ function resisterGoods(type) {
                     `);
                     }
                 }
-
-
-
             }
-          
         },
         error: function() {
             alert("데이터를 불러오는 데 실패했습니다.");
@@ -119,6 +117,10 @@ function resisterGoods(type) {
     });
 }
 
+$(".properties-box").on("click", ".ViewDetails", function() {
+    const storeid = $(this).data('store-id');
+    window.location.href = `property-details.html?storeid=${storeid}`;
+});
 
 // 페이지 로드 시 '등록 물품 건' 데이터 불러오기
 $(document).ready(function() {
