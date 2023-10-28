@@ -44,10 +44,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // 판매자만 접근할 수 있는 경로 설정
                 //.antMatchers("/store/**").hasRole("SELLER")
                 // 판매자와 유저 모두 접근할 수 있는 경로 설정
-                .antMatchers("/storage/**", "/store/**").hasAnyRole("SELLER", "USER")
+                .antMatchers("/storage/**", "/store/**").hasAnyRole("SELLER", "USER", "ADMIN")
                         // 개발용 설정
                 //.anyRequest().hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-                .anyRequest().hasRole("ADMIN")
+                .anyRequest().hasAuthority("ROLE_ADMIN")
                 .and()
                 // 권한을 통과하지 못할 경우 예외 전달
                 .exceptionHandling().accessDeniedHandler(new CustomAccessDeniedHandler())
