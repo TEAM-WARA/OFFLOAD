@@ -22,6 +22,7 @@ public class StoreDTO {
     private Double coordinateX;
     private Double coordinateY;
     private String email;
+    private String phone;
     @Builder.Default
     private List<Long> images = new ArrayList<>();
 }

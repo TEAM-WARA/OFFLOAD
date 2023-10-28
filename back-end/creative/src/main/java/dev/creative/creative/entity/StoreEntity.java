@@ -28,6 +28,7 @@ public class StoreEntity {
 
     @Column
     private String email;
+    @Column String phone;
 
     @Column
     private String address;
