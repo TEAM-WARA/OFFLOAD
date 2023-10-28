@@ -7,11 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Villa Agency - Property Detail Page</title>
+    <title>Villa Agency - Property Listing by TemplateMo</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
@@ -55,6 +54,7 @@ https://templatemo.com/tm-591-villa-agency
                         <h1>Offload</h1>
                     </a>
                     <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="map.html">지도</a></li>
                       <li id="storeRegisterItem"><a href="storeResister.html">가게등록</a></li> <!-- id 추가 -->
@@ -68,7 +68,7 @@ https://templatemo.com/tm-591-villa-agency
                     
                       <li id="registeredItem"><a href="resister_goods.html"><i class="fa fa-calendar"></i> 등록한 물품</a></li>
 
-                  </ul>   
+                  </ul>    
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -84,52 +84,33 @@ https://templatemo.com/tm-591-villa-agency
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb"><a href="#">Where it was stored</a></span>
-          <h3>보관한 장소
-          </h3>
+          <span class="breadcrumb"><a href="#">
+            Store inventory management</a></span>
+          <h3>가게 물품 관리</h3>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="single-property section">
+  <div class="section properties">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="main-image">
-                    <!-- 메인 이미지 설정을 위한 ID 추가 -->
-                    <img id="main-image-src" src="assets/images/single-property.jpg" alt="Store Image">
-                </div>
-                <div class="main-content">
-                    <span id="property-name" class="category"></span> <!-- 상점 이름 -->
-                    <h4 id="property-address"></h4> <!-- 주소 -->
-                    <p>
-                        이메일: <span id="property-email"></span> <!-- 이메일 -->
-                        <br>
-                        소개:<span id="property-content"></span> 
-                    </p>
-                </div> 
-            </div>
-        </div>
+      <ul class="properties-filter">
+        <li>
+          <a class="is_active" onclick="resisterGoods('User_registeredItems')" id="user_resisterButton">등록된 내 물품</a>
+        </li>
+        <li>
+          <a onclick="resisterGoods('User_requestItems')" id="user_requestButton">등록 요청 물품</a>
+        </li>
+
+      </ul>
+      <div class="row properties-box">
+        
     </div>
+    
+  </div>
 </div>
 
 
-
-
-  <div class="section best-deal">
-
-  </div>
-
-  <footer class="footer-no-gap">
-    <div class="container">
-      <div class="col-lg-12">
-        <p>Copyright © 2048 Villa Agency Co., Ltd. All rights reserved. 
-        
-        Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a> Distribution: <a href="https://themewagon.com">ThemeWagon</a></p>
-      </div>
-    </div>
-  </footer>
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
@@ -140,6 +121,7 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
   <script src="assets/js/navigation_ID.js"></script>
-  <script src="assets/js/store_detail.js"></script>
+  <script src="assets/js/resisterGoods.js"></script>
+
   </body>
 </html>

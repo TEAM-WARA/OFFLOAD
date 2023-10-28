@@ -28,6 +28,7 @@ https://templatemo.com/tm-591-villa-agency
 
 -->
 <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="assets/css/dropdown.css" />
   </head>
 
 <body>
@@ -58,10 +59,17 @@ https://templatemo.com/tm-591-villa-agency
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="storeResister.html">가게등록</a></li>
-                      <li><a href="properties.html">가게 물품 관리</a></li>
-                      <li><a href="login.html">로그인</a></li>
-                      <li><a href="property-details.html"><i class="fa fa-calendar"></i> 등록한 물품</a></li>
+                      <li id="storeRegisterItem"><a href="storeResister.html">가게등록</a></li> <!-- id 추가 -->
+                      <li id="storeManageItem"><a href="store_management.html">가게 물품 관리</a></li> <!-- id 추가 -->
+                      <li id="loginMenuItem">
+                        <a href="#" id="loginMenu">로그인</a>
+                        <div class="dropdown-content" id="dropdownContent">
+                            <a href="#" id="logoutAction">로그아웃</a>
+                        </div>
+                    </li>
+                    
+                    <li id="registeredItem"><a href="resister_goods.html"><i class="fa fa-calendar"></i> 등록한 물품</a></li>
+
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -104,6 +112,8 @@ https://templatemo.com/tm-591-villa-agency
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
   <script src="app.js"></script>
+
+  <script src="assets/js/navigation_ID.js"></script>
   </body>
 
 
