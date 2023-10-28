@@ -13,7 +13,7 @@ var markers = [];
 
 
 mapDiv.style.width = '100%';   //MapSize 조절
-mapDiv.style.height = '100vh';
+mapDiv.style.height = '85vh';
 
 map.relayout();
 
@@ -203,13 +203,13 @@ markerList.forEach(function(markerInfo) {
     // Popup창 정보, 디자인
     var popupContent =`
     <div class='content'>
-        <div class='img-box' style='background: #f5f5f5 url(https://port-0-creativefusion-jvpb2aln5qmjmz.sel5.cloudtype.app/image/${markerInfo.images[1]}) no-repeat center; background-size: cover;'>
+        <div class='img-box' style='background: #f5f5f5 url(https://port-0-creativefusion-jvpb2aln5qmjmz.sel5.cloudtype.app/image/${markerInfo.images[1]}) no-repeat center; background-size: contain;'>
         <a href='javascript:void(0)' onclick='onClose()' class='btn-close'></a>
       </div>
       <div class='info-box'>
         <p style='margin-bottom: 7px; overflow: hidden;'>
           <span class='tit'>${markerInfo.name}</span>
-          <a href='/' target='_blank' class='link' style='color: #3D6DCC; font-size: 13px; float: right;'>가게이동</a>
+          <a href='itemRegistration.html' target='_blank' class='link' style='color: #3D6DCC; font-size: 13px; float: right;'>물품등록</a>
         </p>
         <p><span class='new-addr'>${markerInfo.address}</span></p>
         <p><span class='old-addr'>${markerInfo.id}</span></p>

@@ -18,27 +18,31 @@ form {
 
 /* 팝업 스타일 */
 .content {
-  position: static;
+  position: absolute;
   display: flex;
   font-size: 14px;
   box-shadow: 5px 5px 5px #00000040;
   border-radius: 10px;
   flex-direction: column;
-  top: 180px;
-  left :800px;
-   width : 40vw; 
-   background-color:#FFFFFF; 
-   padding:5px; 
+  top: -50vh; /* 상하 위치 조정 */
+  left: -100vh; /* 좌우 위치 조정 */
+  width: 20vw; /* 좌우 크기 조정 */
+  height: 60vh; /* 위아래 크기 조정 */
+  background-color: #FFFFFF;
+  padding: 5px;
 }
 
 .img-box {
-   position:relative; 
-   width: 39.5vw; /* 뷰포트 너비의 40% */
-   height: 20vh; /* 뷰포트 높이의 20% */
-   border-radius:10px; 
-   background:#f5f5f5 url() no-repeat center;  
-   background-size: cover;
-  }
+  position: relative;
+  width: 100%; /* 이미지의 너비를 부모 요소의 100%로 설정 */
+  height: 30vh; /* 이미지의 높이를 뷰포트 높이의 50%로 설정 */
+  border-radius: 10px;
+  background: #f5f5f5 url() no-repeat center;
+  background-size: cover;
+}
+
+/* 나머지 스타일은 그대로 유지 */
+
 /* https://upload.wikimedia.org/wikipedia/commons/b/b7/Jungangno_Station_%28Daegu%29_20221125_002.jpg */
 
 .btn-close {
@@ -77,27 +81,6 @@ form {
 }
 /* 팝업 스타일 끝 */
 
-/* 검색창 디자인 */
-/* #searchBox {
-padding: 10px;
-font-size: 16px;
-border-radius: 5px;
-border: 1px solid #313131;
-}
-
-#searchButton {
-padding: 10px;
-font-size: 16px;
-background-color: #4a4a4a7d; 
-color: white; 
-border-radius: 5px; 
-border:none; 
-}
-
-#searchButton:hover {
-background-color:#5c5c5c;
-} */
-/* 검색창 디자인 끝 */
 
 /* 검색창 디자인 */
 #searchBox {
